@@ -1,0 +1,10 @@
+# Coinbase archive
+
+\[This is not explained very clearly, plus the "coinbase" page is already pretty complete. Leaving here for now in case I need some missing info.\]
+
+Coinbase transactions include minting of new Kaspa when discovering new blocks and transaction fees - let's call them block rewards. Rather than paying block rewards for a block by including a coinbase transaction in the same block, In Kaspa the block rewards for a given block are paid to the block's creating miner by later blocks. The reason for this, is that in Kaspa, at the time of creating a block, it is not known if some transactions in that block were also included in a parallel block, and which block comes first according to the PHANTOM ghostDAG consensus protocol. Thus, the exact sum of the transaction fees to be paid to the miner is unsettled yet. Therefore, instead of the traditional way where each block charges the fees of its included transactions, in Kaspa, the miner specifies the public address to pay transaction fees to, in the `payload` field in the block he creates. You may think of it as a "pay my block rewards here" message by a miner of a block, to later blocks pointing to it. In order for blocks to be valid, they must pay the required fees to the blocks they point to.
+
+The advantage to miners is that, if they are honest and follow the protocol, they need not worry whether they are mining a block on the longest chain, or on a side chain. They need not worry about their block becoming orphaned, and as a consequence losing all block rewards. In Kaspa, miners just mine, there can be side chains and PHANTOM ghostDAG will at high probability accept all blocks. The worst thing that could happen is that the miner might not get fees for some transactions in his block, if the PHANTOM ghostDAG protocol decided that these transactions were already mined in an earlier block.
+
+The advantage above is also beneficial to transacting users. Their transactions have a much lower chance of being included in orphaned blocks and therefore much lower chance to be discarded.
+
