@@ -1,8 +1,6 @@
 # Welcome to Kaspa Docs
 
-{% hint style="info" %}
-This documentation site is a work in progress.
-{% endhint %}
+> This documentation site is a work in progress.
 
 Kaspa is a highly scalable, highly secure, [proof of work](https://en.bitcoin.it/wiki/Proof_of_work) cryptocurrency using [the PHANTOM blockDAG consensus protocol](https://eprint.iacr.org/2018/104.pdf). It focuses on providing fast [confirmation times](glossary.md#confirmation-time) and a near-instant [proof of publication](glossary.md#proof-of-publication-aka-data-availability) infrastructure. Kaspa is [premine](https://www.investopedia.com/terms/p/premining.asp)-less, [deflationary](https://en.bitcoin.it/wiki/Controlled_supply#Deflation), and without explicit central governance.
 
@@ -22,7 +20,7 @@ Kaspa and this documentation site are still in development. Kaspa is close to a 
   * [**API Server**](components/kasparov-api-server/), to interface between the network and applications
   * [**Wallet**](components/cli-wallet.md), to send and receive Kaspa
   * [**Faucet**](components/faucet.md), to receive dropped Kaspa
-* \*\*\*\*[**Reference**](reference/)**:** contains explainers and documentation on the concepts underlying Kaspa, including [**Transactions**](reference/transactions/), [**Blocks**](reference/blocks/), [**BlockDAG**](reference/blockdag/), and [**Consensus**](reference/consensus/)\*\*\*\*
+* [**Reference**](reference/)**:** contains explainers and documentation on the concepts underlying Kaspa, including [**Transactions**](reference/transactions/), [**Blocks**](reference/blocks/), [**BlockDAG**](reference/blockdag/), and [**Consensus**](reference/consensus/)
 * [**Glossary**](glossary.md)**:** lists quick definitions of terms specific to Kaspa
 * [**Contribute**](contribute.md)**:** describes ways you can contribute to the project
 
