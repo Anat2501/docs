@@ -16,7 +16,7 @@ Pay-to-script-hash \(P2SH\)
 
 ### Multisig <a id="Multisig"></a>
 
-Multi-signature \(multisig\) transactions 
+Multi-signature \(multisig\) transactions
 
 ### Changes in Script from Bitcoin
 

@@ -6,7 +6,7 @@ The blue set is the set of [blocks](../../blocks/) in the [blockDAG](../../block
 
 In other words, the blue set of the blockDAG is the blue set of the [virtual block](../../blockdag/virtual-block.md).
 
-### Blue Block
+## Blue Block
 
 A blue block is a block included in the blue set.
 

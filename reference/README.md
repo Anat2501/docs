@@ -15,6 +15,6 @@ Read about these concepts in the following pages:
 * [Transaction Output \(TXO\) and UTXO Model](txo/)
 * [Blocks](blocks/)
 * [BlockDAG](blockdag/)
-* [Consensus]()
+* [Consensus](./)
 * [Pruning](block-acceptance.md)
 

@@ -14,26 +14,26 @@ The transaction object contains information about the [transaction](../../../glo
 
 ```go
 {
-	transactionHash	        // string   Hex-encoded hash
-	transactionId	         	// string   Hex-encoded hash
-	acceptingBlockHash      // string   Present only if transaction is accepted
-	acceptingBlockBlueScore // int 	 		Present only if transaction is accepted
-	subnetworkId            // string   Hex-encoded RIPEMD160 hash
-	lockTime								// int      The earliest time or blue score the 
-													//          transaction may be included in a block
-	gas				   	 	 				// int      Present only if SubnetworkID is not the 
-													//          native subnetwork
-	payloadHash	       		 	// string   Present only if SubnetworkID is not the 
-													//          native subnetwork
-	payload		       		 		// string   Base64-encoded data. Present only if 
-													//          SubnetworkID is not native
-	inputs                  // Array of TransactionInput
-	outputs  		   		 		  // Array of TransactionOutput
-	mass                    // int      The transaction's mass
-	version                 // int      The transaction's version
-	raw                     // String   Hex-encoded raw transaction
-	confirmations           // int      The number of confirmations the transaction has,
-													//          at the time of the response.
+    transactionHash            // string   Hex-encoded hash
+    transactionId                 // string   Hex-encoded hash
+    acceptingBlockHash      // string   Present only if transaction is accepted
+    acceptingBlockBlueScore // int              Present only if transaction is accepted
+    subnetworkId            // string   Hex-encoded RIPEMD160 hash
+    lockTime                                // int      The earliest time or blue score the 
+                                                    //          transaction may be included in a block
+    gas                                             // int      Present only if SubnetworkID is not the 
+                                                    //          native subnetwork
+    payloadHash                        // string   Present only if SubnetworkID is not the 
+                                                    //          native subnetwork
+    payload                                // string   Base64-encoded data. Present only if 
+                                                    //          SubnetworkID is not native
+    inputs                  // Array of TransactionInput
+    outputs                                // Array of TransactionOutput
+    mass                    // int      The transaction's mass
+    version                 // int      The transaction's version
+    raw                     // String   Hex-encoded raw transaction
+    confirmations           // int      The number of confirmations the transaction has,
+                                                    //          at the time of the response.
 }
 ```
 

@@ -2,7 +2,7 @@
 
 \[I like this explanation, but there is already a page. Leaving here for when I go through and refine that page.\]
 
-### PHANTOM
+## PHANTOM
 
 {% hint style="info" %}
 TL;DR: A blockDAG consensus protocol that returns an ordered list of blocks and a set of -- intuitively -- "well-connected" blocks to be inherited by the future blockDAG.
@@ -24,7 +24,7 @@ Therefore, to find the most well-connected group of blocks, the PHANTOM protocol
 
 > **Maximum** _**k**_**-cluster SubDAG \(**_**MCS\_k**_**\)  
 > Input:** DAG _G_ = \(_C_, _E_\)  
-> **Output:** A subset _S\*\* ⊂ C of maximum size, s.t. \|anticone \(_B_\) ∩_ S\*_\| ≤_ k _for all_ B _∈_ S\*\*.
+> **Output:** A subset _S\*\* ⊂ C of maximum size, s.t. \|anticone \(\_B_\) ∩ _S\*_\| ≤ _k \_for all_ B _∈_ S\*\*.
 
 PHANTOM "colors" all blocks in the _k_-cluster blue \(probably honest\) and all other blocks red \(probably malicious\).
 
@@ -40,7 +40,7 @@ _MCS\_k_, however, is [NP-hard](https://en.wikipedia.org/wiki/NP-hardness), and 
 
 For a full explanation of PHANTOM, see [the original paper](https://eprint.iacr.org/2018/104.pdf).
 
-### GHOSTDAG
+## GHOSTDAG
 
 * [ ] TBD: Yoni proofread
 

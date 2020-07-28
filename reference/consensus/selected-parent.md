@@ -8,9 +8,7 @@ In the example below, both block A and C have the same blue score, but block Aâ€
 
 ![](../../.gitbook/assets/selected-parent.png)
 
-### Selected Tip of the BlockDAG
+## Selected Tip of the BlockDAG
 
 The selected tip of a [blockDAG](../blockdag/) is its [tip](../blockdag/tips.md) with the highest [blue score](blue-score.md).
-
-### 
 

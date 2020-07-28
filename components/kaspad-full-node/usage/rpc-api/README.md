@@ -13,7 +13,7 @@ Calls related to the selected parent chain are listed separately in [Selected Pa
 Some global conventions:
 
 * All hashes are represented in [RPC Byte order](https://bitcoin.org/en/glossary/rpc-byte-order)
-* All serialized blocks are serialized as defined in [Serialized Block]()
+* All serialized blocks are serialized as defined in [Serialized Block](./)
 * All serialized transactions are serialized as defined in [Serialized Transaction](../../../../reference/transactions/#Serialized-Format)
 * All of the above are **hex encoded**
 
@@ -132,9 +132,9 @@ This call takes no parameters.
         SubVer:       string,    User agent this peer advertises itself with
         Inbound:      bool,      True iff the remote peer initiated the connection
         SelectedTip:  string,    Selected tip of the peer
-	      BanScore:     int32,     Ban score assigned to the peer based on a yet-to-be-specified enforcement mechanism
-	      FeeFilter:    int64,     Requested minimum fee a transaction must have to be announced to the peer
-	      SyncNode:     bool,      Whether or not the peer is the sync peer
+          BanScore:     int32,     Ban score assigned to the peer based on a yet-to-be-specified enforcement mechanism
+          FeeFilter:    int64,     Requested minimum fee a transaction must have to be announced to the peer
+          SyncNode:     bool,      Whether or not the peer is the sync peer
     }, ... 
 ]
 ```
@@ -188,24 +188,24 @@ This call takes no parameters.
 
 ```text
 {
-		Version:						 int,										  Peers state serialization version
-		Key: 								 [32]byte,							  Address manager's key for randomness purposes                  
-		Addresses:  				 [ (array of JSON objects) The node's known addresses
-												  {
-														  Addr:         string,		Address
-															Src:          string,		Address of the peer that handed the address
-															SubnetworkID: string,		Address subnetwork ID
-															Attempts:     int,			Number of attempts to connect to the address
-															TimeStamp:    int64,		Time the address was added
-															LastAttempt:  int64,		Last attempt to connect to the address
-															LastSuccess:  int64,		Last successful attempt to connect to the address
-												  }, ...
-												 ],            
-		NewBuckets: 				 map[string]*newbucket,	  Peers state subnetwork new buckets keyed by subnetwork ID           
-		NewBucketFullNodes:  [][]string, 							Peers state full nodes new bucket
-		TriedBuckets:        map[string]*triedbucket, Peers state subnetwork tried buckets keyed by subnetwork ID
-		TriedBucketFullNodes:[][]string, 							Peers state tried full nodes bucket
-	}
+        Version:                         int,                                          Peers state serialization version
+        Key:                                  [32]byte,                              Address manager's key for randomness purposes                  
+        Addresses:                   [ (array of JSON objects) The node's known addresses
+                                                  {
+                                                          Addr:         string,        Address
+                                                            Src:          string,        Address of the peer that handed the address
+                                                            SubnetworkID: string,        Address subnetwork ID
+                                                            Attempts:     int,            Number of attempts to connect to the address
+                                                            TimeStamp:    int64,        Time the address was added
+                                                            LastAttempt:  int64,        Last attempt to connect to the address
+                                                            LastSuccess:  int64,        Last successful attempt to connect to the address
+                                                  }, ...
+                                                 ],            
+        NewBuckets:                  map[string]*newbucket,      Peers state subnetwork new buckets keyed by subnetwork ID           
+        NewBucketFullNodes:  [][]string,                             Peers state full nodes new bucket
+        TriedBuckets:        map[string]*triedbucket, Peers state subnetwork tried buckets keyed by subnetwork ID
+        TriedBucketFullNodes:[][]string,                             Peers state tried full nodes bucket
+    }
 ```
 
 ### node <a id="JSON-RPCAPIcalls-node(empty)"></a>
@@ -275,10 +275,10 @@ Returns a JSON object representing the provided serialized, hex-encoded transact
 ```text
 {
   TxID:     string,    Transaction ID
-	Version:  int32,     Transaction version
-	LockTime: uint64,    Transaction locktime
-	Vin:      [ (array of JSON objects) Transaction inputs
-	            {
+    Version:  int32,     Transaction version
+    LockTime: uint64,    Transaction locktime
+    Vin:      [ (array of JSON objects) Transaction inputs
+                {
                 TxID:      string,     Transaction ID
                 Vout:      uint32,     Output number
                 ScriptSig: { (JSON object) Unlocking script
@@ -286,16 +286,16 @@ Returns a JSON object representing the provided serialized, hex-encoded transact
                            },
                 Sequence:  uint64,     Script sequence number
               }, ...
-	          ],
-	Vout:     [ (array of JSON objects) Transaction outputs
-		          {
+              ],
+    Vout:     [ (array of JSON objects) Transaction outputs
+                  {
                 Value:        uint64,     Value in Kaspa
                 N:            uint32,     Index
                 ScriptPubKey: { (JSON object) Locking script
                                 ...
                               },
               }, ...
-	          ]
+              ]
 }
 ```
 
@@ -337,13 +337,13 @@ Fetches details about a [UTXO](../../../../glossary.md#utxo).
 ```text
 {   (JSON object)
     SelectedTip:   string,    Hex-encoded hash of the block that contains the transaction output
-	  Confirmations: uint64,    Number of confirmations received for this transaction
-	  IsInMempool:   bool,      Whether the transaction is in the mempool
-	  Value:         float64,   Amount spent to this output in KAS
-	  ScriptPubKey:  { (JSON object) Unlocking script
-	                    ...
-	                 },
-	  Coinbase:      bool       Whether or not the transaction is a coinbase
+      Confirmations: uint64,    Number of confirmations received for this transaction
+      IsInMempool:   bool,      Whether the transaction is in the mempool
+      Value:         float64,   Amount spent to this output in KAS
+      ScriptPubKey:  { (JSON object) Unlocking script
+                        ...
+                     },
+      Coinbase:      bool       Whether or not the transaction is a coinbase
 }
 ```
 
@@ -442,26 +442,26 @@ Given a block hash, return the block info, either as the hex-encoded serialized 
 
 ```text
 { (JSON object)
-	Hash:                 string        Hash of the block (same as provided)
-	Confirmations:        uint64        Number of confirmations for this block
-	Size:                 int32         Size of the block
-	BlueScore:            uint64        Block blue score
-	IsChainBlock:         bool          Whether the block is in the selected parent chain
-	Version:              int32         Block version
-	VersionHex:           string        Block version in hexadecimal
-	HashMerkleRoot:       string        Merkle tree reference to the hashes of all transactions in the block
-	AcceptedIDMerkleRoot: string        Merkle tree reference to the hashes of all transactions accepted from the block's merged blocks
-	UTXOCommitment:       string        ECMH UTXO commitment of this block
-	Tx:                   []string      Transaction hashes (only when VerboseTx=false)
-	RawTx:                []TxRawResult Transactions as JSON objects (only when VerboseTx=true)
-	Time:                 int64         Block time in seconds since 1 Jan 1970 GMT
-	Nonce:                uint64        Block nonce
-	Bits:                 string        Bits which represent the block difficulty
-	Difficulty:           float64       Proof-of-work difficulty as a multiple of the minimum difficulty
-	ParentHashes:         []string      Hashes of the parent blocks
-	SelectedParentHash:   string        Selected parent hash
-	ChildHashes:          []string      Hashes of the child blocks (if there are any)
-	AcceptedBlockHashes:  []string      Hashes of the blocks accepted by this block
+    Hash:                 string        Hash of the block (same as provided)
+    Confirmations:        uint64        Number of confirmations for this block
+    Size:                 int32         Size of the block
+    BlueScore:            uint64        Block blue score
+    IsChainBlock:         bool          Whether the block is in the selected parent chain
+    Version:              int32         Block version
+    VersionHex:           string        Block version in hexadecimal
+    HashMerkleRoot:       string        Merkle tree reference to the hashes of all transactions in the block
+    AcceptedIDMerkleRoot: string        Merkle tree reference to the hashes of all transactions accepted from the block's merged blocks
+    UTXOCommitment:       string        ECMH UTXO commitment of this block
+    Tx:                   []string      Transaction hashes (only when VerboseTx=false)
+    RawTx:                []TxRawResult Transactions as JSON objects (only when VerboseTx=true)
+    Time:                 int64         Block time in seconds since 1 Jan 1970 GMT
+    Nonce:                uint64        Block nonce
+    Bits:                 string        Bits which represent the block difficulty
+    Difficulty:           float64       Proof-of-work difficulty as a multiple of the minimum difficulty
+    ParentHashes:         []string      Hashes of the parent blocks
+    SelectedParentHash:   string        Selected parent hash
+    ChildHashes:          []string      Hashes of the child blocks (if there are any)
+    AcceptedBlockHashes:  []string      Hashes of the blocks accepted by this block
 }
 ```
 
@@ -489,18 +489,18 @@ This call takes no parameters.
 
 ```text
 { (JSON object)
-	DAG:                  string                              Name of the DAG the daemon is on (testnet, mainnet, etc)
-	Blocks:               uint64                              Number of blocks in the DAG
-	Headers:              uint64                              Number of headers we have validated
-	TipHashes:            []string                            Block hashes for the tips in the DAG
-	Difficulty:           float64                             Current difficulty
-	MedianTime:           int64                               Median time from the PoV of the selected tip in the DAG
-	VerificationProgress: float64                             Estimate for how much of the DAG we've verified
-	Pruned:               bool                                Indicates if the node is pruned or not
-	PruneHeight:          uint64                              Lowest block retained in the current pruned DAG
-	DAGWork:              string                              Total cumulative work in the DAG
-	SoftForks:            []*SoftForkDescription              Status of the super-majority soft-forks
-	Bip9SoftForks:        map[string]*Bip9SoftForkDescription Map describing active BIP9 deployments, keyed by BIP9 soft fork
+    DAG:                  string                              Name of the DAG the daemon is on (testnet, mainnet, etc)
+    Blocks:               uint64                              Number of blocks in the DAG
+    Headers:              uint64                              Number of headers we have validated
+    TipHashes:            []string                            Block hashes for the tips in the DAG
+    Difficulty:           float64                             Current difficulty
+    MedianTime:           int64                               Median time from the PoV of the selected tip in the DAG
+    VerificationProgress: float64                             Estimate for how much of the DAG we've verified
+    Pruned:               bool                                Indicates if the node is pruned or not
+    PruneHeight:          uint64                              Lowest block retained in the current pruned DAG
+    DAGWork:              string                              Total cumulative work in the DAG
+    SoftForks:            []*SoftForkDescription              Status of the super-majority soft-forks
+    Bip9SoftForks:        map[string]*Bip9SoftForkDescription Map describing active BIP9 deployments, keyed by BIP9 soft fork
 }
 ```
 
@@ -519,19 +519,19 @@ Translate a block hash to a [block header](../../../../glossary.md#block-header)
 
 ```text
 { (JSON object)
-  Hash:                 string   		  Hash of the block (same as provided)
-	Confirmations:        uint64   		  Number of confirmations
-	Version:              int32         Block version
-	VersionHex:           string        Block version in hexadecimal
-	HashMerkleRoot:       string        Merkle tree reference to the hashes of all transactions in the block
-	AcceptedIDMerkleRoot: string        Merkle tree reference to the hashes of all transactions accepted from the block's blues
-	Time:                 int64         Block time in seconds since 1 Jan 1970 GMT
-	Nonce:                uint64        Block nonce
-	Bits:                 string        Bits which represent the block difficulty
-	Difficulty:           float64       Proof-of-work difficulty as a multiple of the minimum difficulty
-	ParentHashes:         []string      Hashes of the parent blocks
-	SelectedParentHash:   string        Selected parent hash
-	ChildHashes:          []string      Hashes of the child blocks (if there are any)
+  Hash:                 string             Hash of the block (same as provided)
+    Confirmations:        uint64             Number of confirmations
+    Version:              int32         Block version
+    VersionHex:           string        Block version in hexadecimal
+    HashMerkleRoot:       string        Merkle tree reference to the hashes of all transactions in the block
+    AcceptedIDMerkleRoot: string        Merkle tree reference to the hashes of all transactions accepted from the block's blues
+    Time:                 int64         Block time in seconds since 1 Jan 1970 GMT
+    Nonce:                uint64        Block nonce
+    Bits:                 string        Bits which represent the block difficulty
+    Difficulty:           float64       Proof-of-work difficulty as a multiple of the minimum difficulty
+    ParentHashes:         []string      Hashes of the parent blocks
+    SelectedParentHash:   string        Selected parent hash
+    ChildHashes:          []string      Hashes of the child blocks (if there are any)
 }
 ```
 
@@ -564,27 +564,27 @@ If the request parameters include a ‘mode’ key, that is used to explicitly s
 
 ```text
 { (JSON object)
-		Bits:                 string,						Hex-encoded compressed difficulty
-		CurTime:              int64,						Current timestamp in seconds since epoch (Jan 1 1970 GMT)
-		Height:               uint64,						Height of the next block
-		ParentHashes:         []string,					List of the block header hashes of the next block's parents
-		MassLimit:            int64, 						Maximum total transaction mass a block may have.
-		Transactions:         []transactions,		Contents of non-coinbase transactions that should be included in the next block
-		AcceptedIDMerkleRoot: string, 					Accepted ID merkle root of the next block
-		UTXOCommitment:       string, 					UTXO commitment of the next block
-		Version:              int32,						Preferred block version
-		LongPollID:           string,						Identifier for long poll request which allows monitoring for expiration
-		LongPollURI:				  string,						Alternate URI to use for long poll requests if provided (not provided)
-		Target:               string,						Hash target
-		MinTime:              int64,						Minimum timestamp appropriate for next block time in seconds since epoch (Jan 1 1970 GMT)
-		MaxTime:              int64,						Maximum allowed timestamp for a block
-		Mutable:              []string,					List of ways the block template may be changed
-		NonceRange:           string,						Range of valid nonces
-		Capabilities:         []string,					List of additional client-side supported capabilities	
-		RejectReasion: 				string,						Reason the proposal was invalid as-is (only applies to proposal responses)
-   	WorkID:               string,           This value must be returned with result if provided (not provided)
-		IsSynced:             bool							Whether this node is synced with the rest of of the network
-	}
+        Bits:                 string,                        Hex-encoded compressed difficulty
+        CurTime:              int64,                        Current timestamp in seconds since epoch (Jan 1 1970 GMT)
+        Height:               uint64,                        Height of the next block
+        ParentHashes:         []string,                    List of the block header hashes of the next block's parents
+        MassLimit:            int64,                         Maximum total transaction mass a block may have.
+        Transactions:         []transactions,        Contents of non-coinbase transactions that should be included in the next block
+        AcceptedIDMerkleRoot: string,                     Accepted ID merkle root of the next block
+        UTXOCommitment:       string,                     UTXO commitment of the next block
+        Version:              int32,                        Preferred block version
+        LongPollID:           string,                        Identifier for long poll request which allows monitoring for expiration
+        LongPollURI:                  string,                        Alternate URI to use for long poll requests if provided (not provided)
+        Target:               string,                        Hash target
+        MinTime:              int64,                        Minimum timestamp appropriate for next block time in seconds since epoch (Jan 1 1970 GMT)
+        MaxTime:              int64,                        Maximum allowed timestamp for a block
+        Mutable:              []string,                    List of ways the block template may be changed
+        NonceRange:           string,                        Range of valid nonces
+        Capabilities:         []string,                    List of additional client-side supported capabilities    
+        RejectReasion:                 string,                        Reason the proposal was invalid as-is (only applies to proposal responses)
+       WorkID:               string,           This value must be returned with result if provided (not provided)
+        IsSynced:             bool                            Whether this node is synced with the rest of of the network
+    }
 ```
 
 ### getBlocks <a id="JSON-RPCAPIcalls-getheaders(empty)"></a>
@@ -605,9 +605,9 @@ Returns blocks starting from lowHash. The result may contains up to 1000 blocks.
 
 ```text
 { (JSON object)
-		Hashes:        []string,				  List of hashes from lowHash (excluding lowHash) ordered by smallest blue score to greatest
-		RawBlocks:     []string,				  If includeRawBlockData=true, contains the block contents. Otherwise omitted
-		VerboseBlocks: []verboseblock,		If includeRawBlockData=true and includeVerboseBlockData=true, each block is returned as a JSON object. Otherwise, hex-encoded string
+        Hashes:        []string,                  List of hashes from lowHash (excluding lowHash) ordered by smallest blue score to greatest
+        RawBlocks:     []string,                  If includeRawBlockData=true, contains the block contents. Otherwise omitted
+        VerboseBlocks: []verboseblock,        If includeRawBlockData=true and includeVerboseBlockData=true, each block is returned as a JSON object. Otherwise, hex-encoded string
 }
 ```
 
@@ -638,16 +638,16 @@ This call takes no parameters.
 
 ```text
 { (JSON object)
-	Version:         string  Version of the server
-	ProtocolVersion: int32   Latest supported protocol version
-	Blocks:          uint64  Number of blocks processed
-	Connections:     int32   Number of connected peers
-	Proxy:           string  Proxy used by the server
-	Difficulty:      float64 Current target difficulty
-	Testnet:         bool    Whether or not server is using testnet
-	Devnet:          bool    Whether or not server is using devnet
-	RelayFee:        float64 Minimum relay fee for non-free transactions in KAS/KB
-	Errors:          string  Any current errors
+    Version:         string  Version of the server
+    ProtocolVersion: int32   Latest supported protocol version
+    Blocks:          uint64  Number of blocks processed
+    Connections:     int32   Number of connected peers
+    Proxy:           string  Proxy used by the server
+    Difficulty:      float64 Current target difficulty
+    Testnet:         bool    Whether or not server is using testnet
+    Devnet:          bool    Whether or not server is using devnet
+    RelayFee:        float64 Minimum relay fee for non-free transactions in KAS/KB
+    Errors:          string  Any current errors
 }
 ```
 
@@ -907,8 +907,6 @@ The valid debug levels are trace, debug, info, warn, error, and critical. The va
 
 "Done." Or, if LevelSpec="show", a list of available subsystems.
 
-
-
 ### help <a id="JSON-RPCAPIcalls-help(empty)"></a>
 
 List all commands, or get help for a specified command.
@@ -959,14 +957,14 @@ This call takes no parameters.
 
 ```text
 { (JSON object) Version objects keyed by the program or API name
-		KaspadJSONRPCAPI: {
-			VersionString: string,		JSON-RPC API version
-			Major:         uint32 		Major component of the JSON-RPC API version
-			Minor:         uint32 		Minor component of the JSON-RPC API version
-			Patch:         uint32 		Patch component of the JSON-RPC API version
-			Prerelease:    string 		Prerelease info about the current build
-			BuildMetadata: string 		Metadata about the current build
-		}, ...
+        KaspadJSONRPCAPI: {
+            VersionString: string,        JSON-RPC API version
+            Major:         uint32         Major component of the JSON-RPC API version
+            Minor:         uint32         Minor component of the JSON-RPC API version
+            Patch:         uint32         Patch component of the JSON-RPC API version
+            Prerelease:    string         Prerelease info about the current build
+            BuildMetadata: string         Metadata about the current build
+        }, ...
 }
 ```
 
@@ -976,13 +974,13 @@ The original Bitcoin Core full node doubled as a wallet manager. This makes litt
 
 We decided to remove all wallet related RPC calls, which we list for completeness.
 
-The calls are: 
+The calls are:
 
-`addmultisigaddress, addnode, createmultisig, dumpprivkey, encryptwallet, getaccount, getaccountaddress, getaddressesbyaccount, getbalance,` 
+`addmultisigaddress, addnode, createmultisig, dumpprivkey, encryptwallet, getaccount, getaccountaddress, getaddressesbyaccount, getbalance,`
 
-`getnewaddress, getrawchangeaddress, getreceivedbyaccount, getreceivedbyaddress, gettxoutsetinfo, importprivkey, keypoolrefill, listaccounts,` 
+`getnewaddress, getrawchangeaddress, getreceivedbyaccount, getreceivedbyaddress, gettxoutsetinfo, importprivkey, keypoolrefill, listaccounts,`
 
-`listaddressgroupings, listlockunspent, listreceivedbyaccount, listreceivedbyaddress, listsinceblock, listtransactions, listunspent, lockunspent,` 
+`listaddressgroupings, listlockunspent, listreceivedbyaccount, listreceivedbyaddress, listsinceblock, listtransactions, listunspent, lockunspent,`
 
 `move, sendfrom, sendmany, sendtoaddress, setaccount, settxfee, signmessage, signrawtransaction, walletlock, walletpassphrase, walletpassphrasechange.`
 

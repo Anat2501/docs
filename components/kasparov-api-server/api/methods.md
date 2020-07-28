@@ -255,7 +255,7 @@ The response is a single transaction object.
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Searches for all transactions where the given address is either an input or an output.  
+Searches for all transactions where the given address is either an input or an output .  
 Returns an integer representing the total number of transactions for the given address.
 {% endapi-method-description %}
 
@@ -274,7 +274,7 @@ A Bech32-encoded address
 
 {% endapi-method-response-example-description %}
 
-```
+```text
 12345
 ```
 {% endapi-method-response-example %}
@@ -288,12 +288,9 @@ A Bech32-encoded address
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Searches for all transactions where the given address is either an input or an output.    
+Searches for all transactions where the given address is either an input or an output .  
 Returns: Array of Transaction, sorted by API Server Transaction ID, which is sorted according to accepting block date in ascending order, which is almost according to transaction date in ascending order, earliest transaction first. \(The reason it is almost but not exactly chronological order stems from the high block creation rate of the DAG. If two blocks are created in parallel in two different parts of the DAG, it is hard to say which one came first, because of the lack of global clock.\)  
-Accepts optional limit and skip parameters.  
-  -  limit \(default=100\) allows limiting the number of returned transactions between 1 and 1000.  
-  -  skip \(default=0\) allows to skip a given number of transactions.  
-If there are no transactions for the given address, returns an empty array.
+Accepts optional limit and skip parameters.
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -308,7 +305,7 @@ If provided, skips the first given number of transactions, ordered by ID \(defau
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="limit" type="integer" required=false %}
-If provided, limits the response to the given number of  transactions \(default 100, max 1000\); If more than 1000 or less than 1 is specified, returns an error
+If provided, limits the response to the given number of transactions \(default 100, max 1000\); If more than 1000 or less than 1 is specified, returns an error
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 {% endapi-method-request %}
@@ -757,7 +754,7 @@ The response is a single block object.
     "blueScore":int,
     "isChainBlock":boolean,
     "mass":int,
-}                         
+}
 ```
 {% endapi-method-response-example %}
 
@@ -804,35 +801,10 @@ The response is a single block object.
 {% endapi-method %}
 
 {% api-method method="get" host="https://api.kas.pa" path="/dev/v1/blocks/count" %}
-{% api-method-summary %}
-/blocks/count
-{% endapi-method-summary %}
-
-{% api-method-description %}
-Searches for all blocks.  
-Response is an integer with the total number of blocks.
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
-```
-
-```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
 
 {% api-method method="get" host="https://api.kas.pa" path="/dev/v1/blocks\[?order=asc/desc&skip=0&limit=25\]" %}
 {% api-method-summary %}
-/blocks
+
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -938,51 +910,10 @@ order can be either "asc" or "desc".
 {% endapi-method %}
 
 {% api-method method="get" host="https://api.kas.pa" path="/dev/v1/fee-estimates" %}
-{% api-method-summary %}
-/fee-estimates
-{% endapi-method-summary %}
-
-{% api-method-description %}
-Returns updated fee estimates.
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-The response is a feeEstimates object.
-{% endapi-method-response-example-description %}
-
-```javascript
-{
-    "highPriority":900
-    "normalPriority":300
-    "lowPriority":100
-}
-```
-{% endapi-method-response-example %}
-
-{% api-method-response-example httpCode=500 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
-```javascript
-{
-    "errorCode":500
-    "errorMessage":"A server error occurred."
-}
-```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
 
 {% api-method method="post" host="https://api.kas.pa" path="/dev/v1/transaction" %}
 {% api-method-summary %}
-/transaction
+
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -1004,7 +935,7 @@ Hex-encoded raw transaction data
 
 {% endapi-method-response-example-description %}
 
-```
+```text
 
 ```
 {% endapi-method-response-example %}

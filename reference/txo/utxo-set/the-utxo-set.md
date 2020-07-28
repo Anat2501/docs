@@ -42,7 +42,7 @@ Returns a list of differences that, if applied to `this`, will result in a perfe
 
 Given a transaction, this method calculates the difference between `this` before and after applying the transaction.
 
-If one or more of the inputs in the transactions do not appear as an output from the worldview of `this`,  an error is returned.
+If one or more of the inputs in the transactions do not appear as an output from the worldview of `this`, an error is returned.
 
 This has a default implementation in the function called `utxo_set.diffFromTx`. Implementations of UTXOSet should decorate this function by default, choosing not to do so must be explicitly justified in the documentation.
 
@@ -154,7 +154,7 @@ Has the following assumptions on the input:
 
 The table below details where a given UTXO should be put in the output according to whether and where it appears in both `d` and `other`.
 
-|  other \ d | toAdd | toRemove | neither |
+| other  d | toAdd | toRemove | neither |
 | :--- | :--- | :--- | :--- |
 | **toAdd** | none | impossible | toAdd |
 | **toRemove** | impossible | none | toRemove |
@@ -203,7 +203,7 @@ UTXODiff.WithDiff creates a diff whose base is the base of d, and whose result i
 
 The table below details where a given UTXO should be put in the output according to whether and where it appears in both `d` and `diff`.
 
-|  diff \ d | toAdd | toRemove | neither |
+| diff  d | toAdd | toRemove | neither |
 | :--- | :--- | :--- | :--- |
 | **toAdd** | impossible | none | toAdd |
 | **toRemove** | none | impossible | toRemove |
@@ -239,16 +239,16 @@ This is done as follows:
 restoreUTXO(block B)
     stack   = [B]
     cur     = B
-     
+
     while cur.DiffChild is not null
         cur     = cur.DiffChild
         stack   = stack.append(cur)
- 
+
     utxo    = empty UTXOSet
-     
+
     while stack is not empty
         utxo = utxo.WithDiff(stack.pop.UTXODiff)
- 
+
     return utxo
 ```
 

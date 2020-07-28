@@ -52,9 +52,3 @@ Get a wallet. Currently there is only a basic [CLI Wallet](../../cli-wallet.md).
 
 \[page word count: ~171\]
 
-
-
-
-
-
-

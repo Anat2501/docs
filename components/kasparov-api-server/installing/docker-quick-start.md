@@ -15,14 +15,14 @@ Follow the instructions below to create and run docker instances of the followin
 
 Note that Kaspad will connect to the Kaspa Testnet using the current configuration.
 
-### Getting started
+## Getting started
 
-#### Prerequisites
+### Prerequisites
 
 * [Docker](https://docs.docker.com/install/)
 * [Docker Compose](https://docs.docker.com/compose/install/)
 
-#### Cloning The GitHub Repository
+### Cloning The GitHub Repository
 
 Use git to clone the quick-start repository:
 
@@ -30,7 +30,7 @@ Use git to clone the quick-start repository:
 $ git clone --recurse-submodules https://github.com/kaspanet/quick-start.git
 ```
 
-#### Run
+### Run
 
 \(build docker images and run\)
 

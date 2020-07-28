@@ -4,9 +4,9 @@ description: This page describes how to install Kasparov from source.
 
 # Build from Source
 
-### Installation
+## Installation
 
-#### Prerequisites
+### Prerequisites
 
 * Latest version of [Go](http://golang.org/) \(currently 1.13\)
 
@@ -34,7 +34,7 @@ $ go install ./...
 
 * kasparovd, kasparovsyncd, and the wallet should now be installed in `$GOPATH/bin`. If you did not already add the bin directory to your system path during Go installation, you are encouraged to do so now.
 
-### Getting Started
+## Getting Started
 
 Kasparov expects to have access to the following systems:
 
@@ -42,7 +42,7 @@ Kasparov expects to have access to the following systems:
 * A MySQL database
 * An optional MQTT broker
 
-#### Linux/BSD/POSIX/Source
+### Linux/BSD/POSIX/Source
 
 **kasparovd**
 

@@ -65,7 +65,7 @@ TBD:
 | prevTxId | uint256 | 32 | [Hash](../serialized-data-formats/hash.md) of a past transaction |
 | prevTxIndex | uint32 | 4 | The index of a [transaction output](../txo/) within the past transaction referenced by `prevTxId` |
 | scriptSigLen | [VarInt](../serialized-data-formats/variable-length-fields/varint.md) | 1-9 | Length of `scriptSig` field in bytes |
-| scriptSig | \[\]byte | scriptSigLen  | Script to satisfy spending condition of the previous transaction output, referenced by `prevTxId`, `prevTxIndex` |
+| scriptSig | \[\]byte | scriptSigLen | Script to satisfy spending condition of the previous transaction output, referenced by `prevTxId`, `prevTxIndex` |
 | sequence | uint64 | 8 | Transaction input sequence number |
 
 Sequence is the same as nSequence in Bitcoin, except it is `uint64` instead of `uint32`.
@@ -185,7 +185,7 @@ A serialized regular transaction is comprised of the fields of the following tab
 | numTxIns | VarInt | 1-9 | Number of transaction input entries in `txIns` |
 | txIns | \[\]txIn | variable | [Transaction inputs](./#Transaction-Inputs-1) |
 | numTxOuts | VarInt | 1-9 | Number of transaction output entries in `txOuts` |
-| txOuts | \[\]txOut  | variable | [Transaction outputs](./#Transaction-Outputs) |
+| txOuts | \[\]txOut | variable | [Transaction outputs](./#Transaction-Outputs) |
 | lockTime | uint64 | 8 | Timestamp that indicates the earliest time a transaction can be added to the blockDAG |
 | subnetworkID | \[\]byte | 20 | ID of [subnetwork](../../components/kaspad-full-node/reference/subnetworks-1.md) this transaction belongs to |
 | gas | uint64 | 8 | A measure of the computational cost for the execution of the arbitrary code in the payload of this transaction. See [subnetworks](../../components/kaspad-full-node/reference/subnetworks-1.md) for more information. |

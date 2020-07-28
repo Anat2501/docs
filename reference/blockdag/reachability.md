@@ -45,7 +45,7 @@ As we know, this set has the property that any blue block has at most _k_ blue b
 
 As we will see, two blocks whose height difference is larger than _k_ are definitely reachable. If the height difference is smaller than that then one can look for one block in the past of the other, by performing a DFS of bounded depth \(and hence, bounded time\). This means that any query between blue blocks could be answered in time constant in _T_.
 
-This algorithm can be half extended to reachability queries from a red block to a blue block: the half that works is that having a large blue height difference still immediately implies reachability, the half that does not work is that in the other case we can no longer bound the depth required to determine reachability \(and the search itself would have 
+This algorithm can be half extended to reachability queries from a red block to a blue block: the half that works is that having a large blue height difference still immediately implies reachability, the half that does not work is that in the other case we can no longer bound the depth required to determine reachability \(and the search itself would have
 
 As we detail below, a major advantage of this method is that with slight modification, it can also allow to query whether a blue block is reachable from _any_ block \(be it blue or red\). The constant bound on red to blue queries is larger by a factor of _k_, but it is still constant in _T_. However, this approach still does not imply efficient reachability queries to red blocks.
 
@@ -59,20 +59,20 @@ Recall that a DAG is _k_-connected if it has no anticones of size &gt; _k_. Also
 
 **Proposition**: Suppose _D_ is a _k_-connected DAG, with a unique sink node _Gen_. Define the _height_ of a node _d_\(_v_\) to be its distance from _Gen_. Let _u_, _v_ ∈ _D_ such that _v_ ≰ _u_, then _d_\(_v_\) - _d_\(_u_\) &gt; _k_, then _u_ ≤ _v._
 
-**Proof**: Assume _u_ ≰ _v_.  Consider the chain _v_ = _v\__0 ≥ _v_\_1 ≥ ... ≥ _v_\__k_ with _d_\(_v\_j_\) = _d_\(_v\__{_j_-1}\) - 1, _j_ = 1, ..., _k_ \(such chain could always be constructed by the definition of length\). Then _d_\(_v\_k_\) = _d_\(_v_\) - _k_ &gt; _d_\(_u_\) and hence _v\_k_ ≰ _u_.
+**Proof**: Assume _u_ ≰ _v_. Consider the chain _v_ = _v\_\_0 ≥ \_v_\_1 ≥ ... ≥ _v_\__k_ with _d_\(_v\_j_\) = _d_\(_v\_\_{\_j_-1}\) - 1, _j_ = 1, ..., _k_ \(such chain could always be constructed by the definition of length\). Then _d_\(_v\_k_\) = _d_\(_v_\) - _k_ &gt; _d_\(_u_\) and hence _v\_k_ ≰ _u_.
 
-It follows that {_v\__0, ..., _v\_k_} ⊂ _Anticone_\(_u_\) contradicting _k_-connectivity □
+It follows that {_v\_\_0, ..., \_v\_k_} ⊂ _Anticone_\(_u_\) contradicting _k_-connectivity □
 
 This solves the problem on the spot for blocks that are far away. The only remaining case is if their distance is bound by _k_, which means that we can verify it in constant time.
 
-This all comes down to a simple algorithm in the case of  _k_-connectedness. The algorithm assumes that we maintain a linear ordering of the blocks by order inclusion \(which is just an arbitrary topological sort which is easy to maintain, note that this order might be different for different nodes\), as well as the height of the nodes.
+This all comes down to a simple algorithm in the case of _k_-connectedness. The algorithm assumes that we maintain a linear ordering of the blocks by order inclusion \(which is just an arbitrary topological sort which is easy to maintain, note that this order might be different for different nodes\), as well as the height of the nodes.
 
 The algorithm is as follows:
 
 ```text
 Input: two (hashes of) blocks u, v
 Output: TRUE iff there's a path from v to u (i.e. if u is in Past(v))
- 
+
 If v appears before u in the topological order return FALSE
 If d(v) - d(u) > k return TRUE
 Traverse from u down the blue leafs, terminating at nodes with Height <= u.Height. Return TRUE if u is found or FALSE if the search is exhausted
@@ -80,7 +80,7 @@ Traverse from u down the blue leafs, terminating at nodes with Height <= u.Heigh
 
 Or to put it verbally: If they are far away they must be reachable, if they are close then you have to check, but you get a bound on the depth of the check.
 
-**Proposition**: This algorithm runs in time _O_\(_k_^2 ⋅ ****min{_L_, _k_}\)
+**Proposition**: This algorithm runs in time _O_\(_k_^2 ⋅ _\*\*_min{_L_, _k_}\)
 
 **Proof**: The only case whose run time depends on _k_ is the case _d_\(_v_\) - _d_\(_u_\) ≤ _k_.
 
@@ -139,7 +139,7 @@ The last corollary allows us to define the _blue height_ of each _blue_ node to 
 * _Genesis.BlueHeight_  = 0
 * ![](https://latexmath.bolo-app.com/render/1.0/img/372c9faff2d92de7025cbf7b764a2e42)
 
-**Corollary**: If _A_ and _B_ are blue, _B_ ≤ _A_ and _A.BlueHeight_  = _B.BlueHeight_ - 1 then _B_ ∈ _A.BlueLeaves_
+**Corollary**: If _A_ and _B_ are blue, _B_ ≤ _A_ and _A.BlueHeight_ = _B.BlueHeight_ - 1 then _B_ ∈ _A.BlueLeaves_
 
 **Proposition**: Two blue blocks are reachable in the blue leaf graph if and only if they are reachable in the original graph
 
@@ -147,7 +147,7 @@ The last corollary allows us to define the _blue height_ of each _blue_ node to 
 
 For the other direction we note that if there is a path from _A_ to _B_ in the original, then there is also a path from _A_ to _B_ such that each blue block along the path is a blue leaf of the previous blue in the path.
 
-To do so assume that _B'_ and _B''_ are two consecutive blue blocks along the path. If _B''_ then we are done, else we have that is reachable from some _B'''_ which is a blue leaf of _B'_. So we can replace the original stretch of path from _B'_ to _B''_ by a path from _B'_  to _B'''_ to _B''_. We now repeat the process for the path from _B'''_ to _B''_. This process terminates after at most _B'.blueHeight_ - _B''.blueHeight_ steps. □
+To do so assume that _B'_ and _B''_ are two consecutive blue blocks along the path. If _B''_ then we are done, else we have that is reachable from some _B'''_ which is a blue leaf of _B'_. So we can replace the original stretch of path from _B'_ to _B''_ by a path from _B'_ to _B'''_ to _B''_. We now repeat the process for the path from _B'''_ to _B''_. This process terminates after at most _B'.blueHeight_ - _B''.blueHeight_ steps. □
 
 **Corollary**: The blue leaf graph is _k_-connected
 
@@ -166,7 +166,7 @@ Hence, as before, we have the following algorithm:
 ```text
 Input: two (hashes of) blue blocks u, v
 Output: TRUE iff there's a path from v to u (i.e. if u is in Past(v))
- 
+
 If v appears before u in the topological order return FALSE
 If v.BlueHeight - u.BlueHeight > k return TRUE
 Traverse from u down the blue leafs, terminating at nodes with BlueHeight <= u.BlueHeight. Return TRUE if u is found or FALSE if the search is exhausted
@@ -191,7 +191,7 @@ Note that we are traversing _B.Parents_ rather than _B.BlueLeafs_. However, read
 
 **Proposition**: If _B_ is red, _B'_ is blue, _B'_ is earlier than _B_ and _B'.BlueHeight_ + _k_ &lt; _B.BlueHeight_ then _B'_ ≤ _B_
 
-**Proof**: Let _B\*_ be the highest blue reachable from _B_, then _B\*.BlueHeight_  = _B.BlueHeight_ and the proposition from the blue-blue case shows that _B'_ ≤ _B\*_, hence _B'_ ≤ _B_ □
+**Proof**: Let _B\*_ be the highest blue reachable from _B_, then _B\*.BlueHeight_ = _B.BlueHeight_ and the proposition from the blue-blue case shows that _B'_ ≤ _B\*_, hence _B'_ ≤ _B_ □
 
 This means that, yet again, a large blue height can immediately imply reachability.
 
@@ -206,7 +206,7 @@ Assuming we maintain blue height for all blocks as described above
 ```text
 Input: two (hashes of) blocks u, v
 Output: TRUE if u>=v, FALSE if u||v, FAIL if the algorithm can not determine
- 
+
 If v == u return TRUE
 If u is a tip return FALSE
 If v appears before u in the topological order return FALSE
@@ -279,8 +279,8 @@ ParentBlueLeavesLoop: //label
         BlueLeaves[leafCount] = u
         BlueSources[leafCount] = v
         leafCount++
-                 
-         
+
+
 B.BlueLeaves.insert(BlueLeafs)
 ```
 
@@ -341,7 +341,7 @@ In case there are many blues turned red, we repeat the process for each one, mak
 
 The red turned blue case is easier, because it requires for less comparisons.
 
-Assume that _B_ is a red turned blue, we traverse its future in topological order and for each block _C_ we check if _B_ is reachable from any blue leaf of _C_.  If it is we terminate. If it isn't, we add _B_ to the blue leaves and remove all blue leaves which are reachable from _B_. If _C_ is blue, we terminate after doing so.
+Assume that _B_ is a red turned blue, we traverse its future in topological order and for each block _C_ we check if _B_ is reachable from any blue leaf of _C_. If it is we terminate. If it isn't, we add _B_ to the blue leaves and remove all blue leaves which are reachable from _B_. If _C_ is blue, we terminate after doing so.
 
 To be more efficient, whenever we traverse the past of a changed node to update its offspring, we keep track of notes we already visited.
 
@@ -349,7 +349,7 @@ To be more efficient, whenever we traverse the past of a changed node to update 
 Let BlueTurnedRed be the set of all blocks which were blue before the reorg and red after, in topological order
 Let RedTurnedBlue be the set of all blocks which were red before the reorg and blue after, in topological order
 Let Traversed be an empty hash map
- 
+
 func updateRed(v,w):
     If w in Traversed:
         Return
@@ -367,7 +367,7 @@ OuterLoop:  //label
         Return
     For w' in w.Children:
         updateRed(v,w')
- 
+
 func updateBlue(v,w):
     If w in Traversed:
         Return
@@ -381,13 +381,13 @@ func updateBlue(v,w):
     If w is not blue:
         For w' in w.Children:
             updateBlue(v,w')
- 
- 
+
+
 For v in BlueTurnedRed:
     For v' in v.Children:
         Traversed.Clear()
         updateRed(v,v')
- 
+
 For v in RedTurnedBlue:
     For v' in v.Children:
         Traversed.Clear()

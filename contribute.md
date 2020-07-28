@@ -52,5 +52,3 @@ The following is a list of future projects. If you are a developer and looking f
 
 The Kaspa research and development community hangs out on [Discord](https://discord.gg/WmGhhzk). Please introduce yourself in the [\#introductions](https://discord.gg/W5NXCVB) channel.
 
-
-

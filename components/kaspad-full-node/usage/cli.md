@@ -28,7 +28,7 @@ kaspad --outpeers=10 --maxinpeers=120 --testnet
 
 | **Argument** | **Description** |
 | :--- | :--- |
-| `-V` or `--version`  | Show version information and exit. |
+| `-V` or `--version` | Show version information and exit. |
 
 ### Help
 
@@ -118,7 +118,7 @@ kaspad --outpeers=10 --maxinpeers=120 --testnet
       </td>
       <td style="text-align:left">
         <p>Logging level for all subsystems. Options:
-          <br /><code>trace</code>, <code>debug</code>, <code>info</code>, <code>warn</code>, <code>error</code>, <code>critical</code> 
+          <br /><code>trace</code>, <code>debug</code>, <code>info</code>, <code>warn</code>, <code>error</code>, <code>critical</code>
           <br
           />Default: <code>info</code>
         </p>
@@ -164,7 +164,7 @@ kaspad --outpeers=10 --maxinpeers=120 --testnet
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><code>--connect=</code> 
+      <td style="text-align:left"><code>--connect=</code>
       </td>
       <td style="text-align:left">
         <p>Connect only to the peers specified at startup</p>
@@ -177,7 +177,7 @@ kaspad --outpeers=10 --maxinpeers=120 --testnet
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><code>--nolisten</code> 
+      <td style="text-align:left"><code>--nolisten</code>
       </td>
       <td style="text-align:left">
         <p>Disable listening for incoming P2P connections.</p>
@@ -189,7 +189,7 @@ kaspad --outpeers=10 --maxinpeers=120 --testnet
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><code>--listen=</code> 
+      <td style="text-align:left"><code>--listen=</code>
       </td>
       <td style="text-align:left">Add an interface/port to listen for P2P connections.
         <br />Default all interfaces port: <code>16111</code>, testnet: <code>16211</code>
@@ -335,7 +335,7 @@ kaspad --outpeers=10 --maxinpeers=120 --testnet
       <td style="text-align:left">
         <p>Disable built-in RPC server</p>
         <p><b>Note</b>: The RPC server is disabled by default if no
-          <br /><code>rpcuser</code>/<code>rpcpass</code> or <code>rpclimituser</code>/<code>rpclimitpass</code> 
+          <br /><code>rpcuser</code>/<code>rpcpass</code> or <code>rpclimituser</code>/<code>rpclimitpass</code>
           <br
           />is specified</p>
       </td>

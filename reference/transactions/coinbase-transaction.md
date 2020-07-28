@@ -108,5 +108,3 @@ ae812bdaaed78fafecf97d2c72899212d8e56b94287f76de8fed49e53f42b66c --   payloadHas
 1976a9141234e3080bbd4135ca3b330fdc42699f2997cdc088ac123ce465187f8ec82f6b61737061642f -- payload[42] (payload is 0x2a = 42 in this case)
 ```
 
-
-

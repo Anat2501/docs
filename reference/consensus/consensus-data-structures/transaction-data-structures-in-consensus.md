@@ -6,11 +6,11 @@
 
 Holds a list of inputs and outputs stored as TxIn and TxOut
 
-#### Tx.TxID <a id="TransactionDataStructuresInConsensus-Tx.TxID"></a>
+### Tx.TxID <a id="TransactionDataStructuresInConsensus-Tx.TxID"></a>
 
-#### Tx.Ins <a id="TransactionDataStructuresInConsensus-Tx.Ins"></a>
+### Tx.Ins <a id="TransactionDataStructuresInConsensus-Tx.Ins"></a>
 
-#### Tx.Outs <a id="TransactionDataStructuresInConsensus-Tx.Outs"></a>
+### Tx.Outs <a id="TransactionDataStructuresInConsensus-Tx.Outs"></a>
 
 ## TxIn <a id="TransactionDataStructuresInConsensus-TxIn"></a>
 

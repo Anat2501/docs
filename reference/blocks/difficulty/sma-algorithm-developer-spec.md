@@ -2,7 +2,7 @@
 
 A complete explanation and motivation for the algorithm can be found [here](sma-algorithm.md).
 
-### Constants <a id="SMAAlgorithmDeveloperSpec-Constants"></a>
+## Constants <a id="SMAAlgorithmDeveloperSpec-Constants"></a>
 
 _TargetBlockDelay_ = 1 \(second\)
 
@@ -12,7 +12,7 @@ _TimestampDeviationTolerance = 132 \(block delays\)_
 
 _MaxTimeOffsetSeconds = TimestampDeviationTolerance_ \* _TargetBlockDelay_
 
-### Algorithm <a id="SMAAlgorithmDeveloperSpec-Algorithm"></a>
+## Algorithm <a id="SMAAlgorithmDeveloperSpec-Algorithm"></a>
 
 _blockWindow\(b block, size int\):_
 
@@ -25,7 +25,7 @@ _calcBlockTarget\(b block\):_
 3. _AdjustmentFactor_ = \(_DifficultyAdjustmentWindow.MaxTimestamp - DifficultyAdjustmentWindow_.MinTimestamp\) / \(_TargetBlockDelay \* DifficultyAdjustmentWindowSize_\)
 4. return _DifficultyAdjustmentWindow_.AverageTarget \* AdjustmentFactor
 
-### Changes to Block Acceptance Rules <a id="SMAAlgorithmDeveloperSpec-Changestoblockacceptancerules"></a>
+## Changes to Block Acceptance Rules <a id="SMAAlgorithmDeveloperSpec-Changestoblockacceptancerules"></a>
 
 Do not accept block _b_ if any of the following is true:
 

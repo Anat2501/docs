@@ -6,7 +6,7 @@ description: >-
 
 # Kaspa for Bitcoiners
 
-Kaspa is a premine-less, scalable cryptocurrency with deflationary properties that does not have explicit central governance. Kaspa also supports fully validated financial products that do not have any counterparty risks, via Turing complete smart contracts. ****To support fast, decentralized payments and decentralized finance, Kaspa is split into two layers: a base consensus layer based on Bitcoin's proof of work consensus, and a secondary computation layer, based on Layer 2 smart contract scaling solutions \(i.e., the family of "[rollup](../glossary.md#optimistic-rollup)" solutions for Ethereum\).
+Kaspa is a premine-less, scalable cryptocurrency with deflationary properties that does not have explicit central governance. Kaspa also supports fully validated financial products that do not have any counterparty risks, via Turing complete smart contracts. _\*\*_To support fast, decentralized payments and decentralized finance, Kaspa is split into two layers: a base consensus layer based on Bitcoin's proof of work consensus, and a secondary computation layer, based on Layer 2 smart contract scaling solutions \(i.e., the family of "[rollup](../glossary.md#optimistic-rollup)" solutions for Ethereum\).
 
 ## Layer 1 - Fast Payments Without Compromising Security
 
@@ -37,6 +37,4 @@ Ethereum is built for financial applications, but it does not have the decentral
 To establish a needed new paradigm for expressive money, Kaspa has [a computation layer](../components/smart-contract-layer.md) that runs on top of but is decoupled from the base consensus layer; thus, the base layer remains thin, fast, and decentralized, while this layer provides smart contract support for decentralized finance applications. This layer supports various rollup constructions borrowed from scalability solutions for Ethereum: smart contracts are computed and stored off-chain, and their data are “rolled up” into commitments that are posted on-chain. This layer uses the base layer only for proof of publication and dispute resolution. Sets of smart contracts are separated into "[silos](../glossary.md#silo)" for different use cases, and are governed by sets of permissionless stakers.
 
 \[page word count: ~731\]
-
-
 

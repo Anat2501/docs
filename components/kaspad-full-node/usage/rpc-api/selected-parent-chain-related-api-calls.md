@@ -81,24 +81,24 @@ Returns information about the [selected tip of the DAG](../../../../glossary.md#
 
 ```text
 { (JSON object)
-	Hash:                 string,        The hash of the block
-	Version:              int32,         The block version
-	VersionHex:           string,        The block version in hexadecimal
-	HashMerkleRoot:       string,        Merkle tree reference to hashes of all transactions in the block
-	AcceptedIDMerkleRoot: string,        Merkle tree reference to hashes of all transactions accepted from the block's blues
-	UTXOCommitment:       string,        An ECMH UTXO commitment of this block
-	ParentHashes:         []string,      The hashes of the parent blocks
-	SelectedParentHash:   string,        The selected parent hash
-	Nonce:                uint64,        The block nonce
-	Time:                 int64,         The block time in seconds since 1 Jan 1970 GMT
-	Confirmations:        uint64,        The number of confirmations
-	BlueScore:            uint64,        The block's blue score
-	IsChainBlock:         bool,          Whether the block is in the selected parent chain
-	Size:                 int32,         The size of the block
-	Bits:                 string,        The bits which represent the block difficulty
-	Difficulty:           float64,       The proof-of-work difficulty as a multiple of the minimum difficulty
-	ChildHashes:          []string,      The hashes of the child blocks (only if there are any)
-	AcceptedBlockHashes:  []string      The hashes of the blocks accepted by this block
+    Hash:                 string,        The hash of the block
+    Version:              int32,         The block version
+    VersionHex:           string,        The block version in hexadecimal
+    HashMerkleRoot:       string,        Merkle tree reference to hashes of all transactions in the block
+    AcceptedIDMerkleRoot: string,        Merkle tree reference to hashes of all transactions accepted from the block's blues
+    UTXOCommitment:       string,        An ECMH UTXO commitment of this block
+    ParentHashes:         []string,      The hashes of the parent blocks
+    SelectedParentHash:   string,        The selected parent hash
+    Nonce:                uint64,        The block nonce
+    Time:                 int64,         The block time in seconds since 1 Jan 1970 GMT
+    Confirmations:        uint64,        The number of confirmations
+    BlueScore:            uint64,        The block's blue score
+    IsChainBlock:         bool,          Whether the block is in the selected parent chain
+    Size:                 int32,         The size of the block
+    Bits:                 string,        The bits which represent the block difficulty
+    Difficulty:           float64,       The proof-of-work difficulty as a multiple of the minimum difficulty
+    ChildHashes:          []string,      The hashes of the child blocks (only if there are any)
+    AcceptedBlockHashes:  []string      The hashes of the blocks accepted by this block
 }
 ```
 

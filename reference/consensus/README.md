@@ -88,7 +88,7 @@ The vertex _u_ ∈ _G_ is a [parent](../blockdag/past.md#previous-blocks-parents
 This convention is the opposite of the usual terminology in graph theory, where traditionally a vertex points to its children and not the other way around. This is because in our structure traversing along an arrow means going _back_ in time, and it makes sense that children are born _after_ their parents. This might become confusing when consulting the literature, so keep on your toes.
 {% endhint %}
 
-Given _u_ ∈ _G_ we denote by _u._Parents the set of all its parents. We use the notation _u._Parents rather than Parents\(_u_\) to emphasize that this information is [stored locally on the block](../blocks/block-header/), so a block might have a list of parents even if it is not included in the graph.
+Given _u_ ∈ _G_ we denote by _u.\_Parents the set of all its parents. We use the notation \_u.\_Parents rather than Parents\(\_u_\) to emphasize that this information is [stored locally on the block](../blocks/block-header/), so a block might have a list of parents even if it is not included in the graph.
 
 To test your intuition, convince yourself that:
 
@@ -109,13 +109,13 @@ What concerns us is miner behavior that can effect the structure of the graph \(
 
 We expect the miners to adhere to the following three rules:
 
-* When suggesting to add a new block _B_ to the graph, it must hold that _B._Parents = Tips\(_G_\).
+* When suggesting to add a new block _B_ to the graph, it must hold that _B.\_Parents = Tips\(\_G_\).
 * Upon completing the [difficulty](../blocks/difficulty/) puzzle validating a block _B_ \(i.e. successfully mining a new block\), the new block must be transmitted _immediately_.
 * When hearing of a new valid block, propagate it to peers _immediately_.
 
 Any miner or node which does not adhere to these rules is considered _malicious_.
 
-**Exercise**: convince yourself that if a received block _B_ is such that _B._Parents is not an [antichain](../blockdag/anticone.md#antichain), then whoever posted _B_ is necessarily malicious.
+**Exercise**: convince yourself that if a received block _B_ is such that _B.\_Parents is not an_ [_antichain_](../blockdag/anticone.md#antichain)_, then whoever posted \_B_ is necessarily malicious.
 
 These rules are harder to verify. For example, assume that we get a block which points to vertices not in Tips\(_G_\), how do we know that the miner who created _B_ had malicious intent? It might be the case that _B_ was pointing to the tips at its creation, but by the time knowledge of _B_ reached us we already accepted other blocks, changing our view of the graph from that of _B_ during its creation.
 
@@ -187,10 +187,10 @@ Recall the many ways to topologically order getting dressed described in the beg
 
 To solve this, we decree that non-comparable blocks are ordered by [hash](../serialized-data-formats/hash.md) \(where the actual value of the block hash is determined in the [block implementation specification](../blocks/)\).
 
-I.e., if ≺ is the topological order then _B_ ≺ _B'_  if and only if
+I.e., if ≺ is the topological order then _B_ ≺ _B'_ if and only if
 
 * _B_ ∈ past\(_B'_\), or
-* _B_ ‖ _B'_ and _B_.Id &lt; _B'_ _._Id
+* _B_ ‖ _B'_ and _B_.Id &lt; _B'_ \_.\_Id
 
 This defines a unique total order of _G_ which we call the _PHANTOM order._
 
@@ -202,20 +202,20 @@ This includes the [virtual block](../blockdag/virtual-block.md), whose correspon
 
 We need the amount of data stored in each block to be bound by a constant. To achieve this, we first choose a particular parent of _B_ denoted _B_.selectedParent. We now notice the following two trivial facts:
 
-* Blue-Set\(_B_\) = Blue-Set\(_B_.selectedParent\) ⋃ _B_.Blues, where _B._Blues = \(Blue-Set\(_B_\) ⋂ Anticone\(_B._selectedParent\)\) ⋃ _B_.selectedParent \(see figure\)
-* By definition of a _k_-cluster we get that \|_B_.Blues\| ≤ _k_ \(because _B._Blues ⊆ Anticone\(_B_.selectedParent\) ⋃ _B_.selectedParent\)
+* Blue-Set\(_B_\) = Blue-Set\(_B_.selectedParent\) ⋃ _B_.Blues, where _B.\_Blues = \(Blue-Set\(\_B_\) ⋂ Anticone\(_B.\_selectedParent\)\) ⋃ \_B_.selectedParent \(see figure\)
+* By definition of a _k_-cluster we get that \|_B_.Blues\| ≤ _k_ \(because _B.\_Blues ⊆ Anticone\(\_B_.selectedParent\) ⋃ _B_.selectedParent\)
 
 ![](../../.gitbook/assets/selected-parent-blue-set-blues.png)
 
-The blue blocks in _B_'s point of view, which are not already in _B._selectedParent \(denoted _B_\__SP_\)'s point of view, are exactly _B_.Blues = \(Blue-Set\(_B_\) ⋂ Anticone\(_B_.selectedParent\)\) ⋃ _B_.selectedParent.
+The blue blocks in _B_'s point of view, which are not already in _B.\_selectedParent \(denoted \_B_\__SP_\)'s point of view, are exactly _B_.Blues = \(Blue-Set\(_B_\) ⋂ Anticone\(_B_.selectedParent\)\) ⋃ _B_.selectedParent.
 
 Hence, by storing _B_.Blues we get exactly what we wanted. The amount of data attached to each block is constant, while it is easy to calculate Blue-Set\(_B_\):
 
 ```text
 Blue-Set(Block B):
-	if B is Genesis:
-		return {B}
-	return B.Blues union Blue-Set(B.selectedParent)
+    if B is Genesis:
+        return {B}
+    return B.Blues union Blue-Set(B.selectedParent)
 ```
 
 However, such a calculation becomes inefficient as the graph grows and is not needed in practice.
@@ -230,7 +230,7 @@ The [virtual block](../blockdag/virtual-block.md) also has a selected parent. Th
 
 More precisely, the selected chain of the DAG is comprised of:
 
-**B₁** = Virtual.selectedParent, **B₂** = B₁.selectedParent, ..., **B\_n** = B\_{n-1}.selectedParent = Genesis 
+**B₁** = Virtual.selectedParent, **B₂** = B₁.selectedParent, ..., **B\_n** = B\_{n-1}.selectedParent = Genesis
 
 ### More on Choosing the Selected Parent <a id="More-On-Choosing-The-Selected-Parent"></a>
 
@@ -285,7 +285,7 @@ Given a block _B_ we define it's _k-grandpa_ to be the selected parent of its se
 
 We have the following easy observations:
 
-* The GHOSTDAG algorithm stated above will halt after _k_ blocks has been added to _B._Blues
+* The GHOSTDAG algorithm stated above will halt after _k_ blocks has been added to \_B.\_Blues
 * We will not add any block which is not in Future\(_k_-grandpa\(_B_.selectedParent\)\)
 
 The latter is because any block not in Future\(_k_-grandpa\(_B_.selectedParent\)\) has at least _k_ + 1 elements of the selected chains \(which are always blue\) in its anticone. Convincing yourself of the former observation remains an exercise.

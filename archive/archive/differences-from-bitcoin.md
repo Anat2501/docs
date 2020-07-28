@@ -4,8 +4,6 @@ description: Spec > Differences from Bitcoin
 
 # Differences from Bitcoin
 
-
-
 1. ‌DAG
 2. Phantom
 3. UTXO-set maintenance, diff, etc.

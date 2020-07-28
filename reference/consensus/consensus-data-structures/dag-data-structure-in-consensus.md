@@ -42,7 +42,7 @@ The virtual block's Parents field always points to DAG.Tips, its UTXOSet field a
 
 > \(g \*DAG\) AddBlock\(newBlock \*Block\)
 
-Adds a new block to the DAG, 
+Adds a new block to the DAG,
 
 ### DAG.Block <a id="DAGDataStructureInConsensus-DAG.Block"></a>
 

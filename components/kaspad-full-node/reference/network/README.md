@@ -50,7 +50,7 @@ The connection manager responsible for managing connections. This includes creat
 
 Nodes may be banned from the network if they attempt a flooding attack; a single message every N seconds will not do any harm, but a continuous barraging of messages will result in a ban.
 
-Banning policy is not a direct "you do this --&gt; you are banned" rule. Instead, it's a more flexible "you do this --&gt; you get X points"; when you reach some threshold, you are banned. Ban scores decay with time. 
+Banning policy is not a direct "you do this --&gt; you are banned" rule. Instead, it's a more flexible "you do this --&gt; you get X points"; when you reach some threshold, you are banned. Ban scores decay with time.
 
 \[Qs: Is the entire score decaying, or part of the score is persistent and some transient? Are the scores configurable, allowing nodes to be more lax or strict as their operator wishes?\]
 
@@ -436,6 +436,4 @@ The selectedtip message is used by a node to reply to a [getseltip](./#getseltip
 | Field Name | Type | Bytes | Description |
 | :--- | :--- | :--- | :--- |
 | SelectedTipHash | [Hash](../../../../reference/serialized-data-formats/hash.md) | 32 | The hash of the selected tip of the node sending the message |
-
-
 

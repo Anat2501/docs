@@ -87,7 +87,7 @@ A transaction may become unaccepted due to a [reorg](../../glossary.md#reorg). A
 
 #### Dis-Accepting a Transaction \(Annulling\)
 
-A reorg could annul a transaction. This happens when the [chain block](../../reference/consensus/selected-parent-chain.md#Chain-Blocks) that accepted it is no longer considered a chain block by the consensus algorithm. 
+A reorg could annul a transaction. This happens when the [chain block](../../reference/consensus/selected-parent-chain.md#Chain-Blocks) that accepted it is no longer considered a chain block by the consensus algorithm.
 
 To be notified when a transaction is no longer accepted, listen to updates from [transactions/unaccepted/{address}](api/mqtt-topics.md#transactions-unaccepted-address). Whenever a transaction paying to or from the given address is dis-accepted, this transaction will be returned.
 

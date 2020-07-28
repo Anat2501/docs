@@ -20,7 +20,7 @@ A full node is the basic participant in the Kaspa network. **Kaspad** is the ref
 
 Users interested in mining Kaspa will need to connect their miner to a full node. The full node does contain a CPU miner, but you will also need to connect an external dedicated miner.
 
-Users interested in developing a wallet will need to run a local development network \(DevNet\) consisting of at least two interconnected full nodes. 
+Users interested in developing a wallet will need to run a local development network \(DevNet\) consisting of at least two interconnected full nodes.
 
 An [API server](../kasparov-api-server/) is available for connecting to a full node and serving wallet and block explorer requests.
 
@@ -28,7 +28,7 @@ An [API server](../kasparov-api-server/) is available for connecting to a full n
 
 There are two ways to setup a Kaspa full node:
 
-1. Quick way, using a [Docker image]().
+1. Quick way, using a [Docker image](./).
 2. Manually building it [from source code](installation/build-from-source.md).
 
 ## Working With a Full Node
@@ -36,8 +36,4 @@ There are two ways to setup a Kaspa full node:
 After completing setup you can use either the [CLI commands](usage/cli.md) or [JSON-RPC](usage/rpc-api/) to interact with your node.
 
 \[page word count: ~205\]
-
-
-
-
 

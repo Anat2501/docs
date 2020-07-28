@@ -6,7 +6,7 @@ description: This page describes the DAG Explorer.
 
 The purpose of a blockDAG explorer is to allow searching for blocks, transactions, addresses, and arbitrary data in the blockDAG.
 
-### A DAG-based Block Explorer: Major Differences from Blockchain <a id="A-DAG-based-Block-Explorer:-Major-Differences-from-Blockchain"></a>
+## A DAG-based Block Explorer: Major Differences from Blockchain <a id="A-DAG-based-Block-Explorer:-Major-Differences-from-Blockchain"></a>
 
 ‌Because of the nature of a block-DAG topology, there are some major differences that should be accounted for when designing the database schema for a DAG-based block explorer.‌
 
@@ -17,7 +17,7 @@ The purpose of a blockDAG explorer is to allow searching for blocks, transaction
 5. Each transaction might appear in multiple blocks as opposed to one block.
 6. Each transaction is accepted \(a new “property”\) by zero to one block \(zero in case of double spend\).
 
-### Block Explorer Duties <a id="Block-Explorer-Duties"></a>
+## Block Explorer Duties <a id="Block-Explorer-Duties"></a>
 
 ‌The block explorer shall have the following pages:‌
 

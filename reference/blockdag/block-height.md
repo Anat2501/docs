@@ -7,6 +7,6 @@ A block B's height can be defined recursively as `B.height = max(B.parents.heigh
 The block height of Genesis equals Zero.
 
 {% hint style="info" %}
-A block’s height is to be distinguished from a block’s [blue score](../consensus/blue-score.md), which a  is generalization of block height in a blockchain.
+A block’s height is to be distinguished from a block’s [blue score](../consensus/blue-score.md), which a is generalization of block height in a blockchain.
 {% endhint %}
 

@@ -18,7 +18,7 @@ The CLI wallet comes as an example package within the Kasparov API Server. To in
 
 To create a new wallet, enter the command `wallet create`, with no input arguments:
 
-```
+```text
 $ wallet create
 ```
 

@@ -123,7 +123,7 @@ Say a node wants to add block B to the above DAG_._ It needs to restore B's UTXO
 
 First, the node restores the UTXO set of B’s [selected parent](../../consensus/selected-parent-chain.md), denoted B\_SP.
 
-Then it attempts to add transactions from B's [merged blocks](../../consensus/merged-blocks.md) according to [PHANTOM](../../consensus/) order, i.e., first transactions from B\_SP, then transactions from E, and finally from H \(note that we assume [k](../../consensus/parameters.md#k)=3 and thus R is not in B's blue merged blocks\). For each transaction attempted to be added, if all its inputs point to outputs that are available in the UTXO set, then the transaction is accepted, the outputs it spends are removed from the UTXO set and the outputs it produces are added to the UTXO set. 
+Then it attempts to add transactions from B's [merged blocks](../../consensus/merged-blocks.md) according to [PHANTOM](../../consensus/) order, i.e., first transactions from B\_SP, then transactions from E, and finally from H \(note that we assume [k](../../consensus/parameters.md#k)=3 and thus R is not in B's blue merged blocks\). For each transaction attempted to be added, if all its inputs point to outputs that are available in the UTXO set, then the transaction is accepted, the outputs it spends are removed from the UTXO set and the outputs it produces are added to the UTXO set.
 
 Lastly, it attempts to add B's own transactions. They all need to consume outputs that are available in the UTXO set that was reached in the previous step.
 
@@ -156,6 +156,4 @@ The last step is to perform the switch between V and V', using V’.meldToBase.
 Or more nicely, by arranging the blocks so that the selected parent chain is a straight chain in the middle, we get:
 
 ![](../../../.gitbook/assets/utxo-diffs-5.png)
-
-
 

@@ -4,5 +4,3 @@ In a [blockDAG](./), tips are the set of [blocks](../blocks/) with [in-degree](h
 
 ![](../../.gitbook/assets/dag-concepts-past-future-anticone-tips-.png)
 
-### 
-

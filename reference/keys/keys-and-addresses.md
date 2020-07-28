@@ -14,7 +14,7 @@ prefix   separator   base-32 encoded payload
                      version  (1 byte)   hash                      checksum
                      -----------------   -----------------------   --------
                      0   type   length  
-                     -   ----   ------  
+                     -   ----   ------
 ```
 
 ## Prefix

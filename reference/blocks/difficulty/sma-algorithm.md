@@ -10,7 +10,7 @@ The importance of a time oracle is that local times are the only measure of how 
 
 Worse yet, malicious miners may use the timestamp leeway to manipulate the difficulty, while being too strict will cause splits.
 
-### Suggested Algorithm in a Naive World <a id="SMAAlgorithm-SuggestedAlgorithminaNaiveWorld"></a>
+## Suggested Algorithm in a Naive World <a id="SMAAlgorithm-SuggestedAlgorithminaNaiveWorld"></a>
 
 The expected difficulty of a proposed block _B_ is calculated as follows:
 
@@ -24,7 +24,7 @@ Lastly we take the average target
 
 and calculate _B.target_ = _V_ ⋅ _α_.
 
-### Handling Bad Timestamps <a id="SMAAlgorithm-HandlingBadTimestamps"></a>
+## Handling Bad Timestamps <a id="SMAAlgorithm-HandlingBadTimestamps"></a>
 
 One main problem with the above algorithm is that timestamps are not accurate, due to propagation, clock drifting, and malfeasance.
 
@@ -42,12 +42,12 @@ These assumptions are an idealized model of the fact that there are a lot of tim
 
 Under these considerations, we need to choose a parameter _F_ which regulates the allowed error by stating that _B_ is rejected unless:
 
-* _B.timeStamp_ ≥ _median_{_B\__1, ..., _B_\_{2_F_-1}} \(block not too much into the past\)
+* _B.timeStamp_ ≥ _median_{_B\_\_1, ..., \_B_\_{2_F_-1}} \(block not too much into the past\)
 * _B.timeStamp_ ≤ _T_ + _λF_ \(block not too much into the future\)
 
 Thus, for example, if a node recognizes that its time is not within these criteria \(i.e. that it can not place a block without lying about the time\) it may deduce that its clock is out of sync.
 
-### Effects of _F_ on difficulty <a id="SMAAlgorithm-Effectsof2353d8fa-3e87-36c6-89e7-288814f9ed62\mathcal{F}ondifficulty"></a>
+## Effects of _F_ on difficulty <a id="SMAAlgorithm-Effectsof2353d8fa-3e87-36c6-89e7-288814f9ed62\mathcal{F}ondifficulty"></a>
 
 As stated, giving more leeway allows for more adversarial manipulation.
 
@@ -63,7 +63,7 @@ If we want to limit timestamp attacks to a create a multiplicative error of at m
 
 In can be crudely stated that large _F_ protects us from synchronization problems at the expense of allowing some difficulty manipulation, while choosing large _N_ protects us from such manipulations while making the algorithm less responsive. It is possible to ameliorate this lack of responsiveness by means other than decreasing _N_, such as choosing different averaging mechanisms. This is essentially what Zawy12 works on.
 
-### Choosing _F_ <a id="SMAAlgorithm-Choosing2353d8fa-3e87-36c6-89e7-288814f9ed62\mathcal{F}"></a>
+## Choosing _F_ <a id="SMAAlgorithm-Choosing2353d8fa-3e87-36c6-89e7-288814f9ed62\mathcal{F}"></a>
 
 Given a fixed _λ_ the choice of _F_ relies on _ε_.
 
@@ -73,13 +73,13 @@ In this case, choosing _F_ such that _λF_ ≥ _e_ suffices to ensure that no no
 
 In the real world, the block delay will not be exactly _λ_, and it can in fact be as low as _λ_/\(1 + _δ_\), so we want to make sure that _F_ ≥ \(1 + _δ_\)_e_/_λ_.
 
-\(We can make a bit more realistic assumption that [_ε_ ~ _N_\(0, _σ_^2\)](https://en.wikipedia.org/wiki/Normal_distribution#Notation) for some unknown _σ_, in  this case _ε_ is not bounded, but arguments can be made if we allow some constant fraction of the network to be out of sync.\)
+\(We can make a bit more realistic assumption that [_ε_ ~ _N_\(0, _σ_^2\)](https://en.wikipedia.org/wiki/Normal_distribution#Notation) for some unknown _σ_, in this case _ε_ is not bounded, but arguments can be made if we allow some constant fraction of the network to be out of sync.\)
 
-### What about _D_\_max? <a id="SMAAlgorithm-Whatabout2353d8fa-3e87-36c6-89e7-288814f9ed62D_{max}?"></a>
+## What about _D_\_max? <a id="SMAAlgorithm-Whatabout2353d8fa-3e87-36c6-89e7-288814f9ed62D_{max}?"></a>
 
 It seems that propagation delay are not much of a concern when all nodes are honest. The only comparison between a block timestamp and the system clock is made when trying to approximate if the block is in the future. Propagation delay can only reduce the difference, so it does not increase the risk of dropping a legitimate block.
 
-### Choosing the Parameters <a id="SMAAlgorithm-ChoosingtheParameters"></a>
+## Choosing the Parameters <a id="SMAAlgorithm-ChoosingtheParameters"></a>
 
 The proposed difficulty adjustment method relies on the following parameters:
 
@@ -95,7 +95,7 @@ Assuming _λ_ = 1 and _e_ = 120 \(in units of seconds\) and assuming we allow _�
 
 Choosing _F_ = 132 we need _N_ ≥ 2_F_/_δ_ = 2640.
 
-### Decreasing _N_ Further <a id="SMAAlgorithm-Decreasing2353d8fa-3e87-36c6-89e7-288814f9ed62NFurther"></a>
+## Decreasing _N_ Further <a id="SMAAlgorithm-Decreasing2353d8fa-3e87-36c6-89e7-288814f9ed62NFurther"></a>
 
 Assuming an attacker has a fraction of _p_ of the hash rate, and assuming constant hash rate during the attack, we get on average that _α_ = \(1 - _p_\) + _p_\(1 + _δ_\) = 1 + _δp_.
 
@@ -103,7 +103,7 @@ Assuming that _p_ &lt; 1/2 we get that on average _α_ &lt; 1 + _δ_/2. Further 
 
 This hints that taking _N_ ≥ 2_F_/\(4_δ_/3\) suffices to ensure that _α_ &lt; 1 + _δ_ most of the time.
 
-### Further Questions <a id="SMAAlgorithm-FurtherQuestions"></a>
+## Further Questions <a id="SMAAlgorithm-FurtherQuestions"></a>
 
 Is there an approximation for _e_?
 
