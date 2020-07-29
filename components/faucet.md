@@ -25,7 +25,25 @@ For example:
 curl https://testnet-faucet.kas.pa/request_money
      -X POST
      -H "Content-Type: application/json"
-     -d '{"address":"your_public_kaspa_address"}'
+     -d '{"address":"kaspatest:pr6m7j9njldwwzlg9v7v53unlr4jkmx6eyvwc0uz5t"}'
+```
+
+Reply:
+
+```bash
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   132  100    66  100    66     40     40  0:00:01  0:00:01 --:--:--    80
+"55ab99a7badb5a4cc51c4b4022fc2c20f10ee094e01435630bb473c5fa7564c5"
+```
+
+If you request more than once in 24 hours from the same IP, you will get the following error:
+
+```bash
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   172  100   106  100    66    319    198 --:--:-- --:--:-- --:--:--   519
+{"errorCode":403,"errorMessage":"A user is allowed to to have one request from the faucet every 24 hours"}
 ```
 
 You may request Kaspa from one of the community faucets, listed below.
