@@ -13,7 +13,7 @@ If you need to modify the faucet parameters for development purposes, you can ge
 To request Kaspa, make an https POST request to the faucet address on port 8081 to /request\_money using [curl](https://curl.haxx.se/).
 
 ```bash
-curl https://faucet_address:faucet_port/request_money
+curl https://[faucet_address]/request_money
      -X POST
      -H "Content-Type: application/json"
      -d '{"address":"your_public_kaspa_address"}'
@@ -22,7 +22,7 @@ curl https://faucet_address:faucet_port/request_money
 For example:
 
 ```bash
-curl https://testnet-faucet-us-west-1.kas.pa:8081/request_money
+curl https://testnet-faucet.kas.pa/request_money
      -X POST
      -H "Content-Type: application/json"
      -d '{"address":"your_public_kaspa_address"}'
@@ -36,27 +36,14 @@ You may request Kaspa from one of the community faucets, listed below.
   <thead>
     <tr>
       <th style="text-align:left">Faucet URL</th>
-      <th style="text-align:left">Port</th>
       <th style="text-align:left">Limits</th>
       <th style="text-align:left">Address for Contributions</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left"><a href="https://testnet-faucet-us-west-1.kas.pa/">https://testnet-faucet-us-west-1.kas.pa/</a>
+      <td style="text-align:left"><a href="https://testnet-faucet.kas.pa">https://testnet-faucet.kas.pa</a>
       </td>
-      <td style="text-align:left">8081</td>
-      <td style="text-align:left">
-        <p>KAS 0.0001</p>
-        <p>per IP address</p>
-        <p>per 24 hours</p>
-      </td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><a href="https://testnet-faucet-eu-central-1.kas.pa/">https://testnet-faucet-eu-central-1.kas.pa/</a>
-      </td>
-      <td style="text-align:left">8081</td>
       <td style="text-align:left">
         <p>KAS 0.0001</p>
         <p>per IP address</p>
@@ -66,6 +53,8 @@ You may request Kaspa from one of the community faucets, listed below.
     </tr>
   </tbody>
 </table>
+
+To list your faucet, drop a message on [Discord](https://discord.gg/WmGhhzk).
 
 ## Contribute
 
