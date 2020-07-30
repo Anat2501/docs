@@ -4,7 +4,7 @@
 
 Based on [PHANTOM](https://eprint.iacr.org/2018/104.pdf) - a scalable generalization of Nakamoto consensus, we are aiming to build the fastest pure proof of work consensus engine in the crypto space.
 
-Kaspa provides near-instant [proof of publication](glossary.md#proof-of-publication-aka-data-availability) infrastructure and [confirmation times](glossary.md#confirmation-time) within seconds. Kaspa is [premine](https://www.investopedia.com/terms/p/premining.asp)-less, [deflationary](https://en.bitcoin.it/wiki/Controlled_supply#Deflation), and without explicit central governance.
+Kaspa provides near-instant [proof of publication](glossary.md#proof-of-publication-aka-data-availability) infrastructure and [confirmation times](glossary.md#confirmation-time) within seconds. Kaspa is [premine](https://www.investopedia.com/terms/p/premining.asp)-less, and without explicit central governance.
 
 ![Kaspa blockDAG visualization using DAGviz](.gitbook/assets/image%20%2825%29.png)
 
