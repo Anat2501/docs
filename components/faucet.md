@@ -55,7 +55,7 @@ You may request Kaspa from one of the community faucets, listed below.
     <tr>
       <th style="text-align:left">Faucet URL</th>
       <th style="text-align:left">Limits</th>
-      <th style="text-align:left">Address for Contributions</th>
+      <th style="text-align:left">Address for Donations</th>
     </tr>
   </thead>
   <tbody>

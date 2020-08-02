@@ -25,3 +25,4 @@ Kaspa is still in development and close to a non-feature-complete [TestNet](glos
 * [**Contribute**](contribute.md): ways you can help
 
 \[page word count: ~150\]
+
