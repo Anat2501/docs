@@ -14,16 +14,16 @@ The number of confirmations of a block B is the difference in [blue score](../bl
 
 ```text
 Block.confirmations =
-    DAG.selected_tip.blue_score - Block.merging_block.blue_score + 1
+    DAG.selected_tip.blue_score - Block.merging_chain_block.blue_score + 1
 ```
 
 {% hint style="info" %}
-In Bitcoin, the number of confirmations of a block is the difference between the height of the block and the height of the blockchain.
+In Bitcoin, the number of confirmations of a block is the difference between the [height of the block](../../blockdag/block-height.md) and the height of the longest blockchain.
 
-In the Kaspa blockDAG, a block’s blue score is a generalization of a block’s height in a blockchain.
+In Kaspa, a block’s [blue score](../blue-score.md) is the [blockDAG](../../blockdag/) generalization of blockchains' block height.
 {% endhint %}
 
-If the block has no merging chain block, it has no confirmations.
+If the block has no [merging chain block](../merged-blocks.md#a-blocks-merging-chain-block), it has no confirmations; unless it is the [selected tip](../selected-parent.md#selected-tip-of-the-blockdag), and then it has 1 confirmation by definition.
 
 If the block is [red](../red-set.md#red-block), it has no confirmations.
 
@@ -35,8 +35,12 @@ The number of confirmations of a transaction T is the difference in [blue score]
 
 ```text
 Txn.confirmations =
-    DAG.selected_tip.blue_score - Txn.containing_block.accepting_block.blue_score + 1
+    DAG.selected_tip.blue_score - Txn.merging_chain_block.blue_score + 1
 ```
 
-If the transaction was not yet accepted \(it is in the [mempool](../../../glossary.md#mempool)/it is in a [red block](../red-set.md#red-block)/it double spends a UTXO\) then it has no confirmations.
+If the transaction was not yet accepted \(it is in the [mempool](../../../glossary.md#mempool)/it is in a [red block](../red-set.md#red-block)/it double spends an [output](../../txo/)\) then it has 0 confirmations.
+
+If the transaction is in the [selected tip](../selected-parent.md#selected-tip-of-the-blockdag), it has 1 confirmation by definition.
+
+If the transaction is in any [tip ](../../blockdag/tips.md)of the [blockDAG ](../../blockdag/)that is not the [selected tip](../selected-parent.md#selected-tip-of-the-blockdag), it has 0 confirmations.
 
