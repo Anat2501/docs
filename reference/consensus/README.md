@@ -6,6 +6,10 @@ description: >-
 
 # PHANTOM Consensus
 
+{% hint style="info" %}
+TL;DR: PHANTOM is a blockDAG consensus protocol that returns an ordered list of blocks and a set of "well-connected" blocks to be inherited by the future blockDAG.
+{% endhint %}
+
 The [consensus engine](https://www.investopedia.com/terms/c/consensus-mechanism-cryptocurrency.asp) of Kaspa is the PHANTOM protocol. PHANTOM, as presented in [the original paper](https://eprint.iacr.org/2018/104.pdf), is a generalization of Nakamoto's blockchain, used in Bitcoin, to the setting of a [blockDAG](../blockdag/) \(directed acyclic graph of blocks\).
 
 The very rough idea is that rather than discarding "[stale](https://en.bitcoin.it/wiki/Vocabulary#Stale_Block)" blocks as Bitcoin does, which is wasteful for throughput, security, and computation, one can retain them all, but give higher precedence to blocks and transactions which appear "more trustworthy".
