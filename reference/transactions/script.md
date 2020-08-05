@@ -1,6 +1,6 @@
 # Script
 
-Kaspa uses a scripting system in its transactions almost identical to Bitcoin's. For a gentle introduction to Bitcoin Script, see [this section](https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch06.asciidoc#transaction-scripts-and-script-language) of Mastering Bitcoin Chapter 6. For a more detailed specification of Bitcoin Script, see the [Bitcoin wiki article](https://en.bitcoin.it/wiki/Script). Another good walkthrough is available on the [Bitcoin.org developer site](https://developer.bitcoin.org/devguide/transactions.html#introduction).
+Kaspa uses a scripting system in its transactions almost identical to Bitcoin's. For a gentle introduction to Bitcoin Script, see [this section](https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch06.asciidoc#transaction-scripts-and-script-language) of Mastering Bitcoin Chapter 6, as well as [Chapter 7](https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch07.asciidoc) of the book. For a more detailed specification of Bitcoin Script, see the [Bitcoin wiki article](https://en.bitcoin.it/wiki/Script). Another good walkthrough is available on the [Bitcoin.org developer site](https://developer.bitcoin.org/devguide/transactions.html#introduction).
 
 Transaction scripts describe how outputs can be accessed and allow flexibility in transaction type. A "locking" script "encumbers" the transaction outputs, requiring the "unlocking" script to meet certain criteria before the outputs can be released and spent in a new transaction.
 
@@ -8,15 +8,51 @@ Script uses commands called "opcodes".
 
 ### P2PKH
 
-Pay-to-pub-key-hash \(P2PKH\)
+Most transactions use pay-to-pub-key-hash \(P2PKH\) scripts: outputs of a P2PKH transaction contain a locking script that locks the output to a public key hash, i.e., a Kaspa [address](../keys/). An output locked by a P2PKH script can be unlocked \(spent\) by presenting a public key and a digital signature created by the corresponding private key.
+
+The locking script \(referred to as the "scriptPubKey"\) appears in the transaction output:
+
+```text
+OP_DUP OP_HASH160 <PubkeyHash> OP_EQUALVERIFY OP_CHECKSIG
+```
+
+A new transaction unlocks the transaction output for spending by including a "scriptSig" in its corresponding input:
+
+```text
+<Sig> <PubKey>
+```
 
 ### P2SH
 
-Pay-to-script-hash \(P2SH\)
+Pay-to-script-hash \(P2SH\) scripts allow versatility in transactions and simplify the use of complex transaction scripts. Instead of sending a transaction to an address \(or a complex string of addresses\), the script sends the transaction to a script hash.
+
+The locking scriptPubKey is as follows:
+
+```text
+OP_HASH160 <Hash160(redeemScript)> OP_EQUAL
+```
+
+The unlocking scriptSig is as follows:
+
+```text
+<sig> [sig] [sig...] <redeemScript>
+```
 
 ### Multisig <a id="Multisig"></a>
 
-Multi-signature \(multisig\) transactions
+Multi-signature \(multisig\) scripts set a condition where N public keys are recorded in the script and at least M of those must provide signatures to unlock the funds. This is also known as an M-of-N scheme, where N is the total number of keys and M is the threshold of signatures required for validation.
+
+The locking scriptPubKey is as follows:
+
+```text
+<m> <A pubkey> [B pubkey] [C pubkey...] <n> OP_CHECKMULTISIG
+```
+
+The unlocking scriptSig is as follows:
+
+```text
+OP_0 <A sig> [B sig] [C sig...]
+```
 
 ### Changes in Script from Bitcoin
 
