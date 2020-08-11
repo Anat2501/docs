@@ -28,7 +28,7 @@ Traditional cryptocurrencies' slow block rate also indicates low transaction thr
 
 Traditional cryptocurrencies' slow block rate also indicates high variance of mining income \(i.e. irregular mining rewards due to the difficulty of finding a block\), incentivizing miners to join larger and larger mining pools—which combine computing power and distribute smaller, more regular mining incomes to participants—as the network grows and the block difficulty increases. This centralizes the consensus power into the hands of a few pool managers. Kaspa's consensus layer's fast block rate decreases the variance of mining income, which decreases the incentive to join mining pools, contributing to mining decentralization.
 
-## Layer 2 - DeFi \(Decentralized Finance\)
+## Layer 2 - DeFi
 
 Bitcoin is not technologically optimized for financial applications. Any stable token on Bitcoin cannot be fully validated and therefore the crypto dollars \(stable tokens\) being built on Bitcoin can only act as an IOU \(e.g., Tether\). There are other attempts at smart contracts on Bitcoin, but because Bitcoin full nodes do not fully validate complex state, most DeFi is built on top of Ethereum.
 
