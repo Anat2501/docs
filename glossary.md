@@ -160,11 +160,11 @@ A current node that also does not have any sync peers. Current Non-Syncing nodes
 
 ## D
 
-### \_\_[_D_](reference/consensus/parameters.md#d)\_\_
+### [_D_](reference/consensus/parameters.md#d)
 
 The propagation delay -- the time it takes a [block](glossary.md#block) to propagate to all miners in the network. It is a function of the block size.
 
-### \_\_[_D_\_max](reference/consensus/parameters.md#d_max)
+### [_D_\_max](reference/consensus/parameters.md#d_max)
 
 An _a priori_ upper bound over [_D_](glossary.md#d), set in the protocol either explicitly \(hard-coded\) or implicitly through another parameter.
 
@@ -254,7 +254,7 @@ Called Initial Block Download \(IBD\) in Bitcoin, this is the process of acquiri
 
 ## K
 
-### \_\_[_k_](reference/consensus/parameters.md#k)\_\_
+### [_k_](reference/consensus/parameters.md#k)
 
 A parameter set by the [GHOSTDAG](glossary.md#ghostdag) and [PHANTOM](glossary.md#phantom) protocols. It is a function of [D\_max](glossary.md#d_max) and [lambda](glossary.md#lambda). It represents an upper bound over the number of [blocks](glossary.md#block) created in parallel.
 
@@ -270,7 +270,7 @@ Kaspa's [full node](glossary.md#full-node) client.
 
 ## L
 
-### [lambda _λ_](reference/consensus/parameters.md#lambda-l)\_\_
+### [lambda _λ_](reference/consensus/parameters.md#lambda-l)
 
 The [block](glossary.md#block) creation rate.
 
