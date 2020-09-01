@@ -124,3 +124,7 @@
   * [Differences from Bitcoin](archive/archive/differences-from-bitcoin.md)
   * [PHANTOM/GHOSTDAG](archive/archive/phantom-ghostdag.md)
 
+---
+
+* [Kaspa GitHub](https://github.com/kaspanet)
+
