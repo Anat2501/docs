@@ -1,5 +1,342 @@
 # Change Log
 
+## **Components**
+
+Unless specified otherwise, all components versions are the main release’s version
+
+1. Kaspad
+2. Kasparov:
+   1. KasparovSyncD
+   2. KasparovD
+3. DNSSeeder
+4. KaspaMiner
+5. Faucet
+6. TxGen
+
+## v0.6.8 - 2020-08-31
+
+### Bug
+
+* \[[NOD-1305](https://daglabs.atlassian.net/browse/NOD-1305)\] - Too many file descriptors on dnsseeder kaspad
+
+## v0.6.7 - 2020-08-30
+
+### Feature
+
+* \[[NOD-1322](https://daglabs.atlassian.net/browse/NOD-1322)\] - Fix compilation on windows
+
+### Bug
+
+* \[[NOD-1323](https://daglabs.atlassian.net/browse/NOD-1323)\] - New block reachability data is not always saved
+
+## v0.6.6 - 2020-08-26
+
+### Feature
+
+* \[[NOD-557](https://daglabs.atlassian.net/browse/NOD-557)\] - Remove RegTest network
+* \[[NOD-592](https://daglabs.atlassian.net/browse/NOD-592)\] - Go over all of TODO and XXX and fix where possible/open tickets
+* \[[NOD-1279](https://daglabs.atlassian.net/browse/NOD-1279)\] - ruleError from IBD block is not being converted to protocolError
+* \[[NOD-1295](https://daglabs.atlassian.net/browse/NOD-1295)\] - Better logs for netsync stability test
+* \[[NOD-1301](https://daglabs.atlassian.net/browse/NOD-1301)\] - Add MsgReject to protowire mapping
+* \[[NOD-1302](https://daglabs.atlassian.net/browse/NOD-1302)\] - Limit rothschild outputs to 100, and use default addresses file if not found
+* \[[NOD-1308](https://daglabs.atlassian.net/browse/NOD-1308)\] - Don't call wg.done\(\) on handshake if flow failed
+* \[[NOD-1317](https://daglabs.atlassian.net/browse/NOD-1317)\] - Shuffle UTXOs on rothschild
+* \[[NOD-1318](https://daglabs.atlassian.net/browse/NOD-1318)\] - Check if relay block is known before requesting it
+
+### Bug
+
+* \[[NOD-1112](https://daglabs.atlassian.net/browse/NOD-1112)\] - Investigate reachability crash
+* \[[NOD-1293](https://daglabs.atlassian.net/browse/NOD-1293)\] - Kaspads send 127.0.0.1 in their msgVersions
+* \[[NOD-1303](https://daglabs.atlassian.net/browse/NOD-1303)\] - Concurent access to UTXO set from RPC
+* \[[NOD-1304](https://daglabs.atlassian.net/browse/NOD-1304)\] - Nil dereference on handshake
+* \[[NOD-1307](https://daglabs.atlassian.net/browse/NOD-1307)\] - Kaspad creates double connection to the same node
+
+## v0.6.5 - 2020-08-23
+
+### Feature
+
+* \[[NOD-1028](https://daglabs.atlassian.net/browse/NOD-1028)\] - clear sync block request queue when calling RemoveFromSyncCandidates
+* \[[NOD-1061](https://daglabs.atlassian.net/browse/NOD-1061)\] - merge restartSyncIfNeeded and startSync
+* \[[NOD-1062](https://daglabs.atlassian.net/browse/NOD-1062)\] - Rename variables in addrmanager.go
+* \[[NOD-1065](https://daglabs.atlassian.net/browse/NOD-1065)\] - Consider getting rid of all MsgFilter\* messages and related functionality
+* \[[NOD-1068](https://daglabs.atlassian.net/browse/NOD-1068)\] - Fix probabilistic test TestDuplicateOutboundConnections
+* \[[NOD-1069](https://daglabs.atlassian.net/browse/NOD-1069)\] - Ignore sync block invs from non sync peers and consider adding ban score
+* \[[NOD-1121](https://daglabs.atlassian.net/browse/NOD-1121)\] - Implement ping-pong flow in libp2p
+* \[[NOD-1277](https://daglabs.atlassian.net/browse/NOD-1277)\] - Update "automation" repository to contain all non-core components
+* \[[NOD-1286](https://daglabs.atlassian.net/browse/NOD-1286)\] - Call router.Close from netconnection.Disconnect
+* \[[NOD-1290](https://daglabs.atlassian.net/browse/NOD-1290)\] - Add blocklogger.LogBlock to IBD.
+
+### Bug
+
+* \[[NOD-1114](https://daglabs.atlassian.net/browse/NOD-1114)\] - Bad log: "No peers state was found in the database. Created a new one 0"
+* \[[NOD-1289](https://daglabs.atlassian.net/browse/NOD-1289)\] - Connection manager doesn't check for double connections
+* \[[NOD-1294](https://daglabs.atlassian.net/browse/NOD-1294)\] - TestTxRelay can close channel twice
+
+## v0.6.4 - 2020-08-19
+
+### Feature
+
+* \[[NOD-1281](https://daglabs.atlassian.net/browse/NOD-1281)\] - stability test for 100k rpc clients
+* \[[NOD-1282](https://daglabs.atlassian.net/browse/NOD-1282)\] - Remove peer after disconnect
+
+### Bug
+
+* \[[NOD-684](https://daglabs.atlassian.net/browse/NOD-684)\] - When the blockrate is subsecond, the difficulty adjustment algorithm crashes with a divide-by-zero error
+* \[[NOD-1275](https://daglabs.atlassian.net/browse/NOD-1275)\] - OnNewBlock is not called after RPC submitBlock.
+* \[[NOD-1285](https://daglabs.atlassian.net/browse/NOD-1285)\] - Deadlock on connectionmanager
+
+## v0.6.3 - 2020-08-16
+
+### Feature
+
+* \[[NOD-1101](https://daglabs.atlassian.net/browse/NOD-1101)\] - Hash data without serializing first
+* \[[NOD-1190](https://daglabs.atlassian.net/browse/NOD-1190)\] - Refactor blockDAG
+* \[[NOD-1201](https://daglabs.atlassian.net/browse/NOD-1201)\] - Whenever there's an interface with a setter to a callback, add a validation that the interface cannot be used before the callback is set
+* \[[NOD-1207](https://daglabs.atlassian.net/browse/NOD-1207)\] - Send Reject messages for txs and blocks that were rejected
+* \[[NOD-1223](https://daglabs.atlassian.net/browse/NOD-1223)\] - Re-organize kaspad in a multi-level folder structure
+* \[[NOD-1233](https://daglabs.atlassian.net/browse/NOD-1233)\] - Go over all TODO\(libp2p\), fix, or open a ticket
+* \[[NOD-1239](https://daglabs.atlassian.net/browse/NOD-1239)\] - Implement protocol WaitForShutdown
+* \[[NOD-1256](https://daglabs.atlassian.net/browse/NOD-1256)\] - Optimize PrepareBlockForTest
+* \[[NOD-1266](https://daglabs.atlassian.net/browse/NOD-1266)\] - Make simple sync stability test run faster
+* \[[NOD-1269](https://daglabs.atlassian.net/browse/NOD-1269)\] - Add profiling to stability tests
+* \[[NOD-1270](https://daglabs.atlassian.net/browse/NOD-1270)\] - Use tmpfs in stability tests
+* \[[NOD-1271](https://daglabs.atlassian.net/browse/NOD-1271)\] - Move version package to the top level
+* \[[NOD-1272](https://daglabs.atlassian.net/browse/NOD-1272)\] - Fix wrong path on stability tests
+* \[[NOD-1276](https://daglabs.atlassian.net/browse/NOD-1276)\] - Pass NetworkFlags to MinimalNetAdatper in dnsseeder
+
+### Bug
+
+* \[[NOD-1129](https://daglabs.atlassian.net/browse/NOD-1129)\] - getBlockTemplate sometimes creates incestous blocks
+* \[[NOD-1267](https://daglabs.atlassian.net/browse/NOD-1267)\] - Kasparov uses time.Unix\(\) instead of mstime.UnixMillisecond
+* \[[NOD-1273](https://daglabs.atlassian.net/browse/NOD-1273)\] - PrepareBlockForTest doesn't order parentHashes
+
+## v0.6.2 - 2020-08-13
+
+### Feature
+
+* \[[NOD-1093](https://daglabs.atlassian.net/browse/NOD-1093)\] - Add hashMerkleRoot to GetBlockTemplateResult
+* \[[NOD-1098](https://daglabs.atlassian.net/browse/NOD-1098)\] - Change timestamps to be millisecond precision
+* \[[NOD-1149](https://daglabs.atlassian.net/browse/NOD-1149)\] - Disable writing kaspad heap dumps to S3 every minute
+* \[[NOD-1204](https://daglabs.atlassian.net/browse/NOD-1204)\] - Add timestamp and serialNumber to every message received and forwarded to flows
+* \[[NOD-1220](https://daglabs.atlassian.net/browse/NOD-1220)\] - Add network string field to Version message
+* \[[NOD-1221](https://daglabs.atlassian.net/browse/NOD-1221)\] - Explicitly add maximum message size in grpc
+* \[[NOD-1234](https://daglabs.atlassian.net/browse/NOD-1234)\] - Add set -e to stability tests
+* \[[NOD-1236](https://daglabs.atlassian.net/browse/NOD-1236)\] - Write script that updates version of all repos
+* \[[NOD-1257](https://daglabs.atlassian.net/browse/NOD-1257)\] - Disable difficulty on simnet
+* \[[NOD-1262](https://daglabs.atlassian.net/browse/NOD-1262)\] - Add network name to MinimalNetAdapter handshake
+* \[[NOD-1263](https://daglabs.atlassian.net/browse/NOD-1263)\] - Add run-fast.sh to stability tests
+* \[[NOD-1265](https://daglabs.atlassian.net/browse/NOD-1265)\] - Fix compilation error in stability test
+
+### Sub-task
+
+* \[[NOD-1034](https://daglabs.atlassian.net/browse/NOD-1034)\] - Consider removing isFinalized
+* \[[NOD-1036](https://daglabs.atlassian.net/browse/NOD-1036)\] - Update block validation rules
+* \[[NOD-1045](https://daglabs.atlassian.net/browse/NOD-1045)\] - Do remove DAG tips from the diffStore's loaded set in clearOldEntries
+
+### Bug
+
+* \[[NOD-1259](https://daglabs.atlassian.net/browse/NOD-1259)\] - Invalid blocks/transactions via RPC crash kaspad
+
+## v0.6.1 - 2020-08-09
+
+### Feature
+
+* \[[NOD-1102](https://daglabs.atlassian.net/browse/NOD-1102)\] - Don't check txgen in testnet-tools/get\_stats.sh
+* \[[NOD-1222](https://daglabs.atlassian.net/browse/NOD-1222)\] - Turn on gzip in grpc
+* \[[NOD-1225](https://daglabs.atlassian.net/browse/NOD-1225)\] - Rename \`wire\` to \`domainmessage\`
+* \[[NOD-1231](https://daglabs.atlassian.net/browse/NOD-1231)\] - Fix repositories after libp2p
+
+### Bug
+
+* \[[NOD-1229](https://daglabs.atlassian.net/browse/NOD-1229)\] - If AntiPastHashesBetween lowHigh or highHash are not found in the DAG, node crashes
+
+## v0.6.0 - 2020-05-06
+
+### Summary
+
+* Move from bitcoin-like p2p layer to grpc-based p2p layer
+* Update of thread model
+* Architecture changes
+
+### Feature
+
+* \[[NOD-454](https://daglabs.atlassian.net/browse/NOD-454)\] - Make GetBlock have a similar interface to GetBlocks
+* \[[NOD-534](https://daglabs.atlassian.net/browse/NOD-534)\] - Consider getting rid of the Services field in NetAddress
+* \[[NOD-577](https://daglabs.atlassian.net/browse/NOD-577)\] - Change BlueScore to BlueWork in phantom, and maybe other places as well
+* \[[NOD-677](https://daglabs.atlassian.net/browse/NOD-677)\] - Remove allowHighFees field from SendRawTransaction RPC call + GetTxOutSetInfoCmd type
+* \[[NOD-688](https://daglabs.atlassian.net/browse/NOD-688)\] - consider removing alt stack
+* \[[NOD-689](https://daglabs.atlassian.net/browse/NOD-689)\] - Get rid of ripemd160 anywhere it's used
+* \[[NOD-756](https://daglabs.atlassian.net/browse/NOD-756)\] - utilize lock time and sequence flags to 64 bits
+* \[[NOD-797](https://daglabs.atlassian.net/browse/NOD-797)\] - In mempool, HandleNewBlock locks the mempool lock and the daglock in an error-prone way
+* \[[NOD-815](https://daglabs.atlassian.net/browse/NOD-815)\] - Refactor all UTXO-diff algebra methods
+* \[[NOD-894](https://daglabs.atlassian.net/browse/NOD-894)\] - Make Hash, TxID and Subnetworkid String\(\) return non-reversed hex
+* \[[NOD-896](https://daglabs.atlassian.net/browse/NOD-896)\] - Change address format so that the checksum includes the prefix
+* \[[NOD-897](https://daglabs.atlassian.net/browse/NOD-897)\] - Support rolling back flat-files in database transactions
+* \[[NOD-906](https://daglabs.atlassian.net/browse/NOD-906)\] - Move transaction mass limit from CheckTransactionSanity to checkTransactionStandard
+* \[[NOD-926](https://daglabs.atlassian.net/browse/NOD-926)\] - High memory usage during initial netsync
+* \[[NOD-948](https://daglabs.atlassian.net/browse/NOD-948)\] - Add boolean flag to specify native subnetwork to wire transactions
+* \[[NOD-950](https://daglabs.atlassian.net/browse/NOD-950)\] - When deploying/resetting testnet - update existing stacks
+* \[[NOD-966](https://daglabs.atlassian.net/browse/NOD-966)\] - Add something similar to ./manage.py exec to testnet
+* \[[NOD-978](https://daglabs.atlassian.net/browse/NOD-978)\] - Tests fail in Windows
+* \[[NOD-979](https://daglabs.atlassian.net/browse/NOD-979)\] - Print --help to stdout instead of stderr
+* \[[NOD-1000](https://daglabs.atlassian.net/browse/NOD-1000)\] - Consider adding isConnected flag to getBlockTemplate and --mine-when-not-connected flag to kaspaminer
+* \[[NOD-1004](https://daglabs.atlassian.net/browse/NOD-1004)\] - Optimize AddrManager.getAddress to use only 1 loop to check all address chances and pick one of them
+* \[[NOD-1016](https://daglabs.atlassian.net/browse/NOD-1016)\] - testnet.py should yell at the user if they attempt to build/deploy with local git commits not set to what's written in testnet/config.yaml
+* \[[NOD-1024](https://daglabs.atlassian.net/browse/NOD-1024)\] - Remove %+v where not needed
+* \[[NOD-1025](https://daglabs.atlassian.net/browse/NOD-1025)\] - Rename any place that refers to "bluestParent" to "selectedParent"
+* \[[NOD-1026](https://daglabs.atlassian.net/browse/NOD-1026)\] - Log all orphan blocks with Info level, and remove the message that says "Adding orphan block %s. This is normal part of netsync process"
+* \[[NOD-1027](https://daglabs.atlassian.net/browse/NOD-1027)\] - Refactor address manager.
+* \[[NOD-1028](https://daglabs.atlassian.net/browse/NOD-1028)\] - clear sync block request queue when calling RemoveFromSyncCandidates
+* \[[NOD-1032](https://daglabs.atlassian.net/browse/NOD-1032)\] - Pruning Part 1+2: Block Classification + Non-Validation of Red Blocks
+* \[[NOD-1037](https://daglabs.atlassian.net/browse/NOD-1037)\] - Kasparov: show kasparov version and kaspad version in kasparov:8080/version
+* \[[NOD-1044](https://daglabs.atlassian.net/browse/NOD-1044)\] - Pruning Part 3: Pruning Proper
+* \[[NOD-1047](https://daglabs.atlassian.net/browse/NOD-1047)\] - Add test to add 1 block with POW on each network
+* \[[NOD-1054](https://daglabs.atlassian.net/browse/NOD-1054)\] - Use same encoding flags for coinbase when serializing transaction for txID
+* \[[NOD-1060](https://daglabs.atlassian.net/browse/NOD-1060)\] - replace sync peer in all places where sync peer is misbehaving as part of the netsync protocol
+* \[[NOD-1061](https://daglabs.atlassian.net/browse/NOD-1061)\] - merge restartSyncIfNeeded and startSync
+* \[[NOD-1062](https://daglabs.atlassian.net/browse/NOD-1062)\] - Rename variables in addrmanager.go
+* \[[NOD-1065](https://daglabs.atlassian.net/browse/NOD-1065)\] - Consider getting rid of all MsgFilter\* messages and related functionality
+* \[[NOD-1066](https://daglabs.atlassian.net/browse/NOD-1066)\] - Kasparov: Add acceptedFrom and includingBlocks fields in transactions
+* \[[NOD-1068](https://daglabs.atlassian.net/browse/NOD-1068)\] - Fix probabilistic test TestDuplicateOutboundConnections
+* \[[NOD-1069](https://daglabs.atlassian.net/browse/NOD-1069)\] - Ignore sync block invs from non sync peers and consider adding ban score
+* \[[NOD-1071](https://daglabs.atlassian.net/browse/NOD-1071)\] - Write test for Application-level garbage
+* \[[NOD-1072](https://daglabs.atlassian.net/browse/NOD-1072)\] - Write test for Infa-level garbage
+* \[[NOD-1073](https://daglabs.atlassian.net/browse/NOD-1073)\] - Write test for JSON-RPC stability
+* \[[NOD-1074](https://daglabs.atlassian.net/browse/NOD-1074)\] - Create tool that can build DAG from some json-description
+* \[[NOD-1077](https://daglabs.atlassian.net/browse/NOD-1077)\] - Decide the right RelayNonStdTxs for each network
+* \[[NOD-1080](https://daglabs.atlassian.net/browse/NOD-1080)\] - Add datadog alert when a node is banned
+* \[[NOD-1081](https://daglabs.atlassian.net/browse/NOD-1081)\] - Write test that makes sure node stays on same tip
+* \[[NOD-1082](https://daglabs.atlassian.net/browse/NOD-1082)\] - Write script for basic kaspad sanity test
+* \[[NOD-1083](https://daglabs.atlassian.net/browse/NOD-1083)\] - Write basic netsync test
+* \[[NOD-1085](https://daglabs.atlassian.net/browse/NOD-1085)\] - Fix kaspaminer to use all the nonce space
+* \[[NOD-1089](https://daglabs.atlassian.net/browse/NOD-1089)\] - Optimize the reachability tree further
+* \[[NOD-1093](https://daglabs.atlassian.net/browse/NOD-1093)\] - Add hashMerkleRoot to GetBlockTemplateResult
+* \[[NOD-1094](https://daglabs.atlassian.net/browse/NOD-1094)\] - Replace modifiedNodes with dirty set that will be affected automatically by rtn's setters
+* \[[NOD-1098](https://daglabs.atlassian.net/browse/NOD-1098)\] - Change timestamps to be millisecond precision
+* \[[NOD-1100](https://daglabs.atlassian.net/browse/NOD-1100)\] - Add something similar to kickstart-mining.py to testnet
+* \[[NOD-1106](https://daglabs.atlassian.net/browse/NOD-1106)\] - Add readme to simple-sync
+* \[[NOD-1107](https://daglabs.atlassian.net/browse/NOD-1107)\] - Go over all db transactions in kaspad, and make sure they can't grow to unmanageable size
+* \[[NOD-1111](https://daglabs.atlassian.net/browse/NOD-1111)\] - Don't use util.block in kaspaminer
+* \[[NOD-1117](https://daglabs.atlassian.net/browse/NOD-1117)\] - Write interfaces for the P2P layer
+* \[[NOD-1118](https://daglabs.atlassian.net/browse/NOD-1118)\] - Implement basic connectivity through grpc
+* \[[NOD-1119](https://daglabs.atlassian.net/browse/NOD-1119)\] - Write alternative main that parses CLI args and starts RPC server + all blockdag structures but not p2p
+* \[[NOD-1120](https://daglabs.atlassian.net/browse/NOD-1120)\] - Implement connection manager
+* \[[NOD-1121](https://daglabs.atlassian.net/browse/NOD-1121)\] - Implement ping-pong flow in libp2p
+* \[[NOD-1122](https://daglabs.atlassian.net/browse/NOD-1122)\] - Implement Stall Control in grpc
+* \[[NOD-1123](https://daglabs.atlassian.net/browse/NOD-1123)\] - Implement banning support in grpc
+* \[[NOD-1124](https://daglabs.atlassian.net/browse/NOD-1124)\] - Implement the Flow thread model and architecture
+* \[[NOD-1125](https://daglabs.atlassian.net/browse/NOD-1125)\] - Implement IBD Flow
+* \[[NOD-1126](https://daglabs.atlassian.net/browse/NOD-1126)\] - Implement Day-to-Day sync flow
+* \[[NOD-1127](https://daglabs.atlassian.net/browse/NOD-1127)\] - Implement Transaction Propagation and Rebroadcast flow
+* \[[NOD-1128](https://daglabs.atlassian.net/browse/NOD-1128)\] - Convert msgType to int-based enum
+* \[[NOD-1130](https://daglabs.atlassian.net/browse/NOD-1130)\] - Update all P2P-related RPC calls by integrating to new system
+* \[[NOD-1133](https://daglabs.atlassian.net/browse/NOD-1133)\] - Decide how to handle transient ban scores on getdata since IBD and normal block relay have their separate message types
+* \[[NOD-1134](https://daglabs.atlassian.net/browse/NOD-1134)\] - Integrate Protocol into main
+* \[[NOD-1136](https://daglabs.atlassian.net/browse/NOD-1136)\] - Write a component that stringifies peer ID to IP, so we can use it in Peer.String\(\)
+* \[[NOD-1137](https://daglabs.atlassian.net/browse/NOD-1137)\] - Implement handshake flow
+* \[[NOD-1142](https://daglabs.atlassian.net/browse/NOD-1142)\] - Implement ping flow
+* \[[NOD-1143](https://daglabs.atlassian.net/browse/NOD-1143)\] - Validating user agent \(including comments\) when node is starting
+* \[[NOD-1145](https://daglabs.atlassian.net/browse/NOD-1145)\] - Normalize panics in flows
+* \[[NOD-1146](https://daglabs.atlassian.net/browse/NOD-1146)\] - Re-implement RPC commands that touch connectionManager
+* \[[NOD-1147](https://daglabs.atlassian.net/browse/NOD-1147)\] - Implement address exchange in grpc
+* \[[NOD-1148](https://daglabs.atlassian.net/browse/NOD-1148)\] - Stabilize P2P layer
+* \[[NOD-1149](https://daglabs.atlassian.net/browse/NOD-1149)\] - Disable writing kaspad heap dumps to S3 every minute
+* \[[NOD-1150](https://daglabs.atlassian.net/browse/NOD-1150)\] - Add in netadapter function to disconnect router
+* \[[NOD-1151](https://daglabs.atlassian.net/browse/NOD-1151)\] - Update DNSSeeder to use grpc
+* \[[NOD-1152](https://daglabs.atlassian.net/browse/NOD-1152)\] - Move banning out of netadapter
+* \[[NOD-1153](https://daglabs.atlassian.net/browse/NOD-1153)\] - Pass NetConnection to the protocol package and use where appropriate
+* \[[NOD-1155](https://daglabs.atlassian.net/browse/NOD-1155)\] - Put netconnection inside peer and use it to disconnect and for String\(\)
+* \[[NOD-1157](https://daglabs.atlassian.net/browse/NOD-1157)\] - Make ProcessTransaction always return the given tx as accepted transaction even if it's not orphan
+* \[[NOD-1160](https://daglabs.atlassian.net/browse/NOD-1160)\] - Convert config.ActiveConfig from singleton to an object that is being passed around
+* \[[NOD-1161](https://daglabs.atlassian.net/browse/NOD-1161)\] - Spawn should get name + generate a unique ID and print those on start and stop
+* \[[NOD-1162](https://daglabs.atlassian.net/browse/NOD-1162)\] - Write basic integration tests for kaspad
+* \[[NOD-1163](https://daglabs.atlassian.net/browse/NOD-1163)\] - Combine separated flows into single package
+* \[[NOD-1164](https://daglabs.atlassian.net/browse/NOD-1164)\] - Convert dbaccess from singleton to object that is passed around
+* \[[NOD-1168](https://daglabs.atlassian.net/browse/NOD-1168)\] - Change the way protocol manager supplies information to flows
+* \[[NOD-1170](https://daglabs.atlassian.net/browse/NOD-1170)\] - Return a custom error when a route is closed
+* \[[NOD-1171](https://daglabs.atlassian.net/browse/NOD-1171)\] - Figure out what to do with the RPC command getNetTotals
+* \[[NOD-1172](https://daglabs.atlassian.net/browse/NOD-1172)\] - Instead of returning isClosed - return ErrIsClosed
+* \[[NOD-1175](https://daglabs.atlassian.net/browse/NOD-1175)\] - Implement AddBlock in ProtocolManager
+* \[[NOD-1176](https://daglabs.atlassian.net/browse/NOD-1176)\] - Flows that pass around a large number of arguments between function calls should have a dedicated object
+* \[[NOD-1177](https://daglabs.atlassian.net/browse/NOD-1177)\] - In handleGetConnectedPeerInfo, populate the missing result fields
+* \[[NOD-1180](https://daglabs.atlassian.net/browse/NOD-1180)\] - Limit bans to 24
+* \[[NOD-1181](https://daglabs.atlassian.net/browse/NOD-1181)\] - Mark banned peers in address manager and persist bans to disk
+* \[[NOD-1183](https://daglabs.atlassian.net/browse/NOD-1183)\] - Re-enable RPC notifications
+* \[[NOD-1186](https://daglabs.atlassian.net/browse/NOD-1186)\] - Change Peer ID to public key, and sign on version message on a constant message
+* \[[NOD-1187](https://daglabs.atlassian.net/browse/NOD-1187)\] - Don't return banned peers when asking for an address
+* \[[NOD-1191](https://daglabs.atlassian.net/browse/NOD-1191)\] - Convert wire protocol to 100% protobuf
+* \[[NOD-1194](https://daglabs.atlassian.net/browse/NOD-1194)\] - Handle ErrRouteClosed as a special case
+* \[[NOD-1195](https://daglabs.atlassian.net/browse/NOD-1195)\] - In checkOutgoingConnections, make the connection loop not probabilistic
+* \[[NOD-1196](https://daglabs.atlassian.net/browse/NOD-1196)\] - Get rid of unnecessary messages
+* \[[NOD-1197](https://daglabs.atlassian.net/browse/NOD-1197)\] - Ban incoming peers that send us a bad version message
+* \[[NOD-1198](https://daglabs.atlassian.net/browse/NOD-1198)\] - Replace NetAdapter.connectionsToRouters with a reference to Router from NetConnection
+* \[[NOD-1201](https://daglabs.atlassian.net/browse/NOD-1201)\] - Whenever there's an interface with a setter to a callback, add a validation that the interface cannot be used before the callback is set
+* \[[NOD-1203](https://daglabs.atlassian.net/browse/NOD-1203)\] - Create netadapter outside of protocol manager
+* \[[NOD-1204](https://daglabs.atlassian.net/browse/NOD-1204)\] - Add timestamp and serialNumber to every message received and forwarded to flows
+* \[[NOD-1206](https://daglabs.atlassian.net/browse/NOD-1206)\] - Call peer.StartIBD in new goroutine
+* \[[NOD-1207](https://daglabs.atlassian.net/browse/NOD-1207)\] - Send Reject messages for txs and blocks that were rejected
+* \[[NOD-1208](https://daglabs.atlassian.net/browse/NOD-1208)\] - Fix Stability Tests
+* \[[NOD-1210](https://daglabs.atlassian.net/browse/NOD-1210)\] - Write IBD integration test
+* \[[NOD-1212](https://daglabs.atlassian.net/browse/NOD-1212)\] - Request IBD blocks in batches
+* \[[NOD-1213](https://daglabs.atlassian.net/browse/NOD-1213)\] - Consider extracting validation logic out of protowire
+* \[[NOD-1214](https://daglabs.atlassian.net/browse/NOD-1214)\] - Create integration tests of as much as possible incoming connections to single node
+* \[[NOD-1215](https://daglabs.atlassian.net/browse/NOD-1215)\] - Create integration test for address exchange
+* \[[NOD-1217](https://daglabs.atlassian.net/browse/NOD-1217)\] - Probabilistic test in rpc/model
+* \[[NOD-1219](https://daglabs.atlassian.net/browse/NOD-1219)\] - Ban a peer if during IBD its sync rate is very low
+* \[[NOD-1220](https://daglabs.atlassian.net/browse/NOD-1220)\] - Add network string field to Version message
+* \[[NOD-1222](https://daglabs.atlassian.net/browse/NOD-1222)\] - Turn on gzip in grpc
+* \[[NOD-1223](https://daglabs.atlassian.net/browse/NOD-1223)\] - Re-organize kaspad in a multi-level folder structure
+* \[[NOD-1225](https://daglabs.atlassian.net/browse/NOD-1225)\] - Rename \`wire\` to \`domainmodel\`
+* \[[NOD-1227](https://daglabs.atlassian.net/browse/NOD-1227)\] - Prepare infrastructure for automated running of stability tests
+* \[[NOD-1228](https://daglabs.atlassian.net/browse/NOD-1228)\] - Prepare DNSSeeder for 0.6.0-libp2p
+* \[[NOD-1230](https://daglabs.atlassian.net/browse/NOD-1230)\] - Merge v0.6.0-dev and v0.6.0-libp2p
+* \[[NOD-1231](https://daglabs.atlassian.net/browse/NOD-1231)\] - Fix repositories after libp2p
+
+### Epic
+
+* \[[NOD-1116](https://daglabs.atlassian.net/browse/NOD-1116)\] - Move p2p layer to grpc
+
+### Sub-task
+
+* \[[NOD-1034](https://daglabs.atlassian.net/browse/NOD-1034)\] - Consider removing isFinalized
+* \[[NOD-1036](https://daglabs.atlassian.net/browse/NOD-1036)\] - Update block validation rules
+* \[[NOD-1045](https://daglabs.atlassian.net/browse/NOD-1045)\] - Do remove DAG tips from the diffStore's loaded set in clearOldEntries
+* \[[NOD-1056](https://daglabs.atlassian.net/browse/NOD-1056)\] - Don't check isFinalized when validating parents
+* \[[NOD-1057](https://daglabs.atlassian.net/browse/NOD-1057)\] - Merge 0.5.0-dev into nod-1032
+* \[[NOD-1067](https://daglabs.atlassian.net/browse/NOD-1067)\] - Add support for deletion in ffldb
+
+### Bug
+
+* \[[NOD-681](https://daglabs.atlassian.net/browse/NOD-681)\] - error on setting MaxInvPerMsg to 50 on all nodes on local network
+* \[[NOD-684](https://daglabs.atlassian.net/browse/NOD-684)\] - When the blockrate is subsecond, the difficulty adjustment algorithm crashes with a divide-by-zero error
+* \[[NOD-908](https://daglabs.atlassian.net/browse/NOD-908)\] - Error submitting block from kaspaminer due to timeout
+* \[[NOD-980](https://daglabs.atlassian.net/browse/NOD-980)\] - Unintuitive error message when connecting with --notls to kaspad with tls
+* \[[NOD-997](https://daglabs.atlassian.net/browse/NOD-997)\] - Concurrent map read and map write in rpcmodel
+* \[[NOD-1029](https://daglabs.atlassian.net/browse/NOD-1029)\] - maybeAcceptBlock doesn't handle well the situation where addNodeToIndexWithInvalidAncestor fails
+* \[[NOD-1055](https://daglabs.atlassian.net/browse/NOD-1055)\] - Kasparov shows accepting block IDs for coinbase transactions outside selectedParentChain
+* \[[NOD-1075](https://daglabs.atlassian.net/browse/NOD-1075)\] - If mining address is not supplied, kaspaminer crashes with "invalid bech32 string length 0"
+* \[[NOD-1076](https://daglabs.atlassian.net/browse/NOD-1076)\] - In testnet deployment, there can only be one mainVpcRoute per region, regardless of prefix
+* \[[NOD-1079](https://daglabs.atlassian.net/browse/NOD-1079)\] - Nodes ban each other
+* \[[NOD-1095](https://daglabs.atlassian.net/browse/NOD-1095)\] - Data races in kaspad
+* \[[NOD-1099](https://daglabs.atlassian.net/browse/NOD-1099)\] - Extreme oscillations in hashrate
+* \[[NOD-1110](https://daglabs.atlassian.net/browse/NOD-1110)\] - Faucet@testnet dies because private key is base58 instead of hex
+* \[[NOD-1112](https://daglabs.atlassian.net/browse/NOD-1112)\] - Investigate reachability crash
+* \[[NOD-1113](https://daglabs.atlassian.net/browse/NOD-1113)\] - BlockHeader.BlockHash\(\), MsgTx.TxHash\(\), MsgTx.TxID\(\) all ignore errors from serializers
+* \[[NOD-1114](https://daglabs.atlassian.net/browse/NOD-1114)\] - Bad log: "No peers state was found in the database. Created a new one 0"
+* \[[NOD-1129](https://daglabs.atlassian.net/browse/NOD-1129)\] - getBlockTemplate sometimes creates incestous blocks
+* \[[NOD-1144](https://daglabs.atlassian.net/browse/NOD-1144)\] - CLI Wallet \`create\` prints some weird decimal string instead of hex private-key
+* \[[NOD-1184](https://daglabs.atlassian.net/browse/NOD-1184)\] - Concurrent map read and write in router
+* \[[NOD-1185](https://daglabs.atlassian.net/browse/NOD-1185)\] - Blocks are not propagated when submitted through RPC
+* \[[NOD-1189](https://daglabs.atlassian.net/browse/NOD-1189)\] - BlockRelay flow: filtering of requested block should be on pendingBlocks
+* \[[NOD-1192](https://daglabs.atlassian.net/browse/NOD-1192)\] - Deadlock in txPool.HandleNewBlock
+* \[[NOD-1193](https://daglabs.atlassian.net/browse/NOD-1193)\] - Race condition in flowContext.Broadcast
+* \[[NOD-1200](https://daglabs.atlassian.net/browse/NOD-1200)\] - Race condition between receiveLoop and startFlows
+* \[[NOD-1205](https://daglabs.atlassian.net/browse/NOD-1205)\] - RemoveRoute wouldn't work if some message types map to the same route
+* \[[NOD-1218](https://daglabs.atlassian.net/browse/NOD-1218)\] - A lot of ping-pongs sent for no reason
+* \[[NOD-1224](https://daglabs.atlassian.net/browse/NOD-1224)\] - Duplicate connections cause same block to be requested twice and eventually a crash
+* \[[NOD-1226](https://daglabs.atlassian.net/browse/NOD-1226)\] - Connection closed during handshake causes a crash
+* \[[NOD-1229](https://daglabs.atlassian.net/browse/NOD-1229)\] - If AntiPastHashesBetween lowHigh or highHash are not found in the DAG, node crashes
+
 ## 0.5.0 - 2020-06-25
 
 ### Bug
