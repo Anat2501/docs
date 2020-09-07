@@ -298,7 +298,7 @@ Every newly mined [block](glossary.md#block) merges \("adds'' to the [blockDAG](
 
 ### [Merging Chain Block](reference/consensus/merged-blocks.md#a-blocks-merging-chain-block)
 
-A [block](glossary.md#block) B's merging chain block is the earliest [chain block](reference/consensus/selected-parent-chain.md#Chain-Blocks) that references B directly or indirectly.
+A [block](glossary.md#block)'s merging chain block is the earliest [chain block](reference/consensus/selected-parent-chain.md#Chain-Blocks) that references it directly or indirectly.
 
 ### Median Time
 
