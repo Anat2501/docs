@@ -407,7 +407,7 @@ The block object contains information about a [block](../../../glossary.md#block
                             //           01/01/1970    
     bits                    // int        
     nonce                   // int        
-    parentBlockHashes       // array of  https://docs.google.com/document/d/1UAK1RKg-PCguPaLpesXfVMk6Rb3Ir1R_LIcT7d9LwsM/edit
+    parentBlockHashes       // array of  Hex-encoded hashes of parent blocks
     acceptingBlockHash      // string    Hex-encoded hash. Present only if 
                             //           this block is accepted
     acceptedBlockHashes     // array of  Hex-encoded hashes of accepted blocks, at the time of the response.
