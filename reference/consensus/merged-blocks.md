@@ -1,6 +1,6 @@
 # Merged Blocks
 
-Every newly mined [block](../blocks/) considers itself as the next [chain block](selected-parent-chain.md#Chain-Blocks), i.e. the next block on the [selected parent chain](selected-parent-chain.md). As such, it merges \("adds'' to the [blockDAG](../blockdag/)\) new blocks that it points to: its [selected parent](selected-parent.md) and the blocks in its selected parent's [anticone](../blockdag/anticone.md) \(in doing so, it adds up to [k](parameters.md#k) [blue blocks](blue-set/#blue-block)\). These blocks are referred to as the block's merged blocks.
+Every newly mined [block](../blocks/) considers itself as the next [chain block](selected-parent-chain.md#Chain-Blocks), i.e. the next block on the [selected parent chain](selected-parent-chain.md). As such, it merges \("adds'' to the [blockDAG](../blockdag/)\) new blocks: its [selected parent](selected-parent.md) and the blocks in its selected parent's [anticone](../blockdag/anticone.md). In doing so, it adds up to [k](parameters.md#k) [blue blocks](blue-set/#blue-block), referred to as the block's merged blue blocks.
 
 ## A Block's Merging Chain Block
 

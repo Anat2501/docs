@@ -294,7 +294,7 @@ A measure used to approximate the storage and computational costs of [transactio
 
 ### [Merged Block](reference/consensus/merged-blocks.md)
 
-Every newly mined [block](glossary.md#block) merges \("adds'' to the [blockDAG](glossary.md#blockdag)\) up to [k](glossary.md#k-1) [blue blocks](glossary.md#blue-block). These blocks are referred to as the block's merged blocks.
+Every newly mined [block](glossary.md#block) merges \("adds'' to the [blockDAG](glossary.md#blockdag)\) blocks, among them up to [k](glossary.md#k-1) [blue blocks](glossary.md#blue-block), which are referred to as the block's merged blue blocks.
 
 ### [Merging Chain Block](reference/consensus/merged-blocks.md#a-blocks-merging-chain-block)
 
@@ -563,7 +563,7 @@ A hash of the [ECMH](https://cseweb.ucsd.edu/~mihir/papers/inc1.pdf) of the [UTX
 
 A UTXO diff of a [block](glossary.md#block) is the information needed to obtain the [UTXO set](glossary.md#utxo-set) of that block from the UTXO set of its [diff child](glossary.md#diff-child).
 
-### [UTXO _\*\*_Set](reference/txo/utxo-set/)
+### [UTXO \_\*\*\_Set](reference/txo/utxo-set/)
 
 The set of all [UTXOs](glossary.md#utxo) \(from the perspective of some block\).
 
